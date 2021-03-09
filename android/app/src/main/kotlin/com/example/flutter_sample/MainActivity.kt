@@ -15,17 +15,12 @@ class MainActivity : FlutterActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //io.flutter.app.FlutterActivity 需要代码手动注册；
-//        GeneratedPluginRegistrant.registerWith(this);//1、注册插件
-//        methodChannel = new MethodChannel(getFlutterView(), "com.example.flutter_demo/dialog");//2、创建一个MethodChannel
-
-//        methodChannel = new MethodChannel(getFlutterEngine().getDartExecutor().getBinaryMessenger(), "com.example.flutter_demo/dialog");//2、创建一个MethodChannel
-        methodChannel = MethodChannel(flutterEngine?.dartExecutor?.binaryMessenger, "com.example.flutter_demo/text") //2、创建一个MethodChannel
+        methodChannel = MethodChannel(flutterEngine?.dartExecutor?.binaryMessenger, "com.example.flutter_sample/channel") //2、创建一个MethodChannel
         methodChannel.setMethodCallHandler(object : MethodChannel.MethodCallHandler {
             //3、监听回调的数据
             override fun onMethodCall(methodCall: MethodCall, result: MethodChannel.Result) {
-                if ("dialog" == methodCall.method) {
-                    if (methodCall.hasArgument("content")) {
+                if ("method_dialog" == methodCall.method) {
+                    if (methodCall.hasArgument("arg_content")) {
                         showAlertDialog()
                         result.success("弹出成功") //4、向Flutter端发送数据
                     } else {
@@ -33,27 +28,25 @@ class MainActivity : FlutterActivity() {
                     }
                 } else {
                     //Android端没有实现Flutter端需要的方法，会将notImplemented返回给Flutter端。
+                    Log.d("caowj", "未监听的MethodName：" + methodCall.method);
                     result.notImplemented()
                 }
             }
-
-            private fun showAlertDialog() {
-                val builder = AlertDialog.Builder(this@MainActivity)
-                builder.setPositiveButton("确定", null)
-                builder.setTitle("Flutter调用Android")
-                builder.show()
-            }
         })
-
-//        startActivity(new Intent(this, TestActivity.class));
     }
 
+    private fun showAlertDialog() {
+        val builder = AlertDialog.Builder(this@MainActivity)
+        builder.setPositiveButton("确定", null)
+        builder.setTitle("Flutter调用Android")
+        builder.show()
+    }
 
     override fun onResume() {
         super.onResume()
         val map: MutableMap<String, String> = mutableMapOf()
-        map["content"] = "这是Android传递给Flutter的值"
-        methodChannel.invokeMethod("showText", map, object : MethodChannel.Result {
+        map["arg_content"] = "这是Android传递给Flutter的值"
+        methodChannel.invokeMethod("method_showText", map, object : MethodChannel.Result {
             override fun notImplemented() {
                 Log.d("caowj", "notImplemented")
             }
@@ -70,6 +63,6 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         //  FlutterLogger.i("FlutterLoader configureFlutterEngine =" );
-        GeneratedPluginRegistrant.registerWith(flutterEngine)
+        GeneratedPluginRegistrant.registerWith(flutterEngine)//1、注册插件
     }
 }

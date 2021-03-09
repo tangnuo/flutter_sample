@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 /// http://liuwangshu.cn/flutter/primer/13-platform-channel.html
 class LwsPlatformApp1 extends StatelessWidget {
   static const platformChannel =
-      const MethodChannel('com.example.flutter_sample/dialog'); //1
+      const MethodChannel('com.example.flutter_sample/channel'); //1
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,10 @@ class LwsPlatformApp1 extends StatelessWidget {
 
   void showDialog(String content) async {
     var arguments = Map();
-    arguments['content'] = content;
+    arguments['arg_content'] = content;
     try {
       String result =
-          await platformChannel.invokeMethod('dialog', arguments); //2
+          await platformChannel.invokeMethod('method_dialog', arguments); //2
       print('showDialog ' + result);
     } on PlatformException catch (e) {
       print('showDialog ' + e.code + e.message + e.details);
@@ -52,9 +52,9 @@ class LwsPlatformApp2 extends StatefulWidget {
 
 class MyAppState extends State<LwsPlatformApp2> {
   static const platformChannel =
-      const MethodChannel('com.example.flutter_sample/text');
+      const MethodChannel('com.example.flutter_sample/channel');
 
-  String textContent = 'Flutter端初始文字';
+  String textContent = 'App从后台切回前台，可以触发刷新';
 
   @override
   void initState() {
@@ -62,11 +62,11 @@ class MyAppState extends State<LwsPlatformApp2> {
 
     platformChannel.setMethodCallHandler((methodCall) async {
       switch (methodCall.method) {
-        case 'showText':
-          String content = await methodCall.arguments['content'];
+        case 'method_showText':
+          String content = await methodCall.arguments['arg_content'];
           if (content != null && content.isNotEmpty) {
             setState(() {
-              textContent = content;
+              textContent += content;
             });
             return 'success';
           } else {
