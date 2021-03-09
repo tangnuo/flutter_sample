@@ -11,11 +11,7 @@ const String _name = "caowj"; //聊天帐号昵称
 class FriendlychatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      //创建一个MaterialApp控件对象，其下可塞入支持Material设计语言特性的控件
-      title: "Friendlychat",
-      home: new ChatScreen(), //主页面为用户自定义ChatScreen控件
-    );
+    return ChatScreen(); //主页面为用户自定义ChatScreen控件
   }
 }
 

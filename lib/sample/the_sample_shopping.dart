@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  // //示例6：整合所有
-  // runApp(new MaterialApp(
-  //   title: 'Shopping App',
-  //   home: new ShoppingList(
-  //     products: <Product>[
-  //       new Product(name: 'Eggs'),
-  //       new Product(name: 'Flour'),
-  //       new Product(name: 'Chocolate chips'),
-  //     ],
-  //   ),
-  // ));
-}
 
 /// 我们假设一个购物应用程序，
 /// 该应用程序显示出售的各种产品，并维护一个购物车。

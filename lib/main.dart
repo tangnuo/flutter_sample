@@ -9,7 +9,7 @@ import 'package:flutter_sample/sample/the_sample_index.dart';
 void main() {
   runApp(new MaterialApp(
     title: '首页',
-    routes: routers, //关键点
+    routes: routers, //路由列表
     home: new MainApp(),
   ));
 }
@@ -29,7 +29,6 @@ class MainApp extends StatelessWidget {
             return InkWell(
               onTap: () {
                 Navigator.of(context).pushNamed(keyList[index]);
-                // Navigator.pushNamed(context, keyList[index]);
               },
               child: Card(
                 child: new Container(
@@ -49,7 +48,7 @@ class MainApp extends StatelessWidget {
 }
 
 Map<String, WidgetBuilder> routers = {
-  "1、聊天": (context) => FriendlychatApp(),
+  "1、聊天案例": (context) => FriendlychatApp(),
   "2、Flutter中文网示例": (context) => SampleIndex(),
   "3、LWS-Flutter": (context) => LwsSampleIndex(),
   "4、GSY_flutter_demo": (context) => WebViewPage(),

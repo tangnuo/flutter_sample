@@ -5,35 +5,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
 
-//class MyApp extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return new MaterialApp(
-//      title: 'Startup Name Generator',
-//      theme: new ThemeData(
-//        primaryColor: Colors.white,
-//      ),
-////        home: TestStack()
-//
-////        home: Scaffold(
-////          body: new MessageForm(),
-////        )
-//
-//      home: Scaffold(
-//        appBar: AppBar(
-//          title: Text("Top Lakes"),
-//        ),
-//        body: Image.asset(
-//          "images/6466.jpg",
-//          width: 300,
-//          height: 170,
-//          fit: BoxFit.cover,
-//        ),
-//      ),
-//    );
-//  }
-//}
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -62,9 +33,7 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return new MaterialApp(
-        title: 'Startup Name Generator',
-        home: Scaffold(
+    return Scaffold(
           appBar: AppBar(
             title: Text('Top Lakes'),
           ),
@@ -85,7 +54,6 @@ class MyApp extends StatelessWidget {
               buttonSection,
               textSection
             ],
-          ),
         ));
   }
 }

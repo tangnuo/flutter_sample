@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 class ChipWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text('流式布局示例'),
         ),
@@ -36,8 +35,7 @@ class ChipWidget extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
 
@@ -45,9 +43,7 @@ class ChipWidget extends StatelessWidget {
 class StackWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter Stack()",
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text('层式布局示例'),
         ),
@@ -69,7 +65,6 @@ class StackWidget extends StatelessWidget {
             )
           ],
         ),
-      ),
     );
   }
 }
@@ -78,9 +73,7 @@ class StackWidget extends StatelessWidget {
 class FlexWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter",
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("弹性布局示例"),
         ),
@@ -113,7 +106,6 @@ class FlexWidget extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

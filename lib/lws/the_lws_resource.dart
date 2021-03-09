@@ -7,15 +7,12 @@ import 'package:flutter/material.dart';
 class LwsAssetsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter",
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("加载文本示例"),
         ),
         body: JsonWidget(),
-      ),
-    );
+      );
   }
 }
 

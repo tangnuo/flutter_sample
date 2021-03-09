@@ -8,14 +8,6 @@ import 'package:flutter_sample/lws/the_lws_resource.dart';
 import 'package:flutter_sample/lws/the_lws_routes.dart';
 import 'package:flutter_sample/lws/the_lws_scrolling.dart';
 
-//程序入口
-// void main() {
-//   runApp(new MaterialApp(
-//     title: '首页',
-//     home: new LwsSampleIndex(),
-//   ));
-// }
-
 class LwsSampleIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -60,10 +60,7 @@ class PassingDataApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Passing Data',
-      home: TodoScreen(items),
-    );
+    return TodoScreen(items);
   }
 }
 
@@ -122,16 +119,13 @@ class DetailScreen extends StatelessWidget {
 class NavigationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Returning App',
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text('Returning Data Demo'),
         ),
         body: Center(
           child: SelectionButton(),
         ),
-      ),
     );
   }
 }

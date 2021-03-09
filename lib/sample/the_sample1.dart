@@ -1,35 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// void main() {
-  //示例1：默认布局
-  // runApp(MyApp());
-
-  //示例2：基础 Widget 自由组合
-  // runApp(new MaterialApp(
-  //   title: "My APP",
-  //   home: new MyScaffold(),
-  // ));
-
-  // //示例3：使用 Material 组件
-  // runApp(new MaterialApp(
-  //   title: 'Flutter Tutorial',
-  //   home: new TutorialHome(),
-  // ));
-
-  //示例4：处理手势
-  // runApp(new MaterialApp(
-  //   title: 'Flutter Tutorial',
-  //   home: new MyButton(),
-  // ));
-
-  //示例5：根据用户输入改变widget
-//   runApp(new MaterialApp(
-//     title: 'Flutter Tutorial',
-//     home: new MyCounter(),
-//   ));
-// }
-
 //////////////////////////// 示例2 /////////////////////////////////
 
 class MyScaffold extends StatelessWidget {

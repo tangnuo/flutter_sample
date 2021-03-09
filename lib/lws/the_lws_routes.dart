@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 class LwsRoutesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter",
-      home: FirstPage(),
-    );
+    return FirstPage();
   }
 }
 
@@ -132,7 +129,7 @@ class FirstPage3 extends StatelessWidget {
       arguments: CustomArgumnets('Android进阶之光'),
     ); // 传参
 
-    print("页面回参："+customArgumnets.content);
+    print("页面回参：" + customArgumnets.content);
   }
 }
 

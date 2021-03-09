@@ -6,47 +6,16 @@ void main() {
   runApp(MyApp());
 }
 
-//class MyApp extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    // 我们想使用 material 风格的应用，所以这里用 MaterialApp
-//    return MaterialApp(
-//      // 移动设备使用这个 title 来表示我们的应用。具体一点说，在 Android 设备里，我们点击
-//      // recent 按钮打开最近应用列表的时候，显示的就是这个 title。
-//      title: 'Our first Flutter app',
-//
-//      // 应用的“主页”
-//      home: Scaffold(
-//        appBar: AppBar(
-//          title: Text('Flutter rolling demo'),
-//        ),
-//        // 我们知道，Flutter 里所有的东西都是 widget。为了把按钮放在屏幕的中间，
-//        // 这里使用了 Center（它是一个 widget）。
-//        body: Center(
-//          child: RaisedButton(
-//            // 用户点击时候调用
-//            onPressed: _onPressed,
-//            child: Text('roll'),
-//          ),
-//        ),
-//      ),
-//    );
-//  }
-//}
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Our first Flutter app',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Flutter rolling demo'),
         ),
         body: Center(
           child: RollingButton(),
         ),
-      ),
     );
   }
 }

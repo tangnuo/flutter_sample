@@ -11,20 +11,17 @@ class LwsPlatformApp1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter Demo",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter调用Android"),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(40.0),
-          child: RaisedButton(
-            child: Text("调用Dialog"),
-            onPressed: () {
-              showDialog("Flutter调用AlertDialog");
-            },
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Flutter调用Android"),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(40.0),
+        child: RaisedButton(
+          child: Text("调用Dialog"),
+          onPressed: () {
+            showDialog("Flutter调用AlertDialog");
+          },
         ),
       ),
     );
@@ -85,16 +82,13 @@ class MyAppState extends State<LwsPlatformApp2> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter Demo",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Android调用Flutter'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(40.0),
-          child: Text(textContent),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Android调用Flutter'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(40.0),
+        child: Text(textContent),
       ),
     );
   }

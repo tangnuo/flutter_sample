@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class GestureDetectorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Gesture Detector',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('GestureDetector示例'),
         ),
@@ -26,7 +24,6 @@ class GestureDetectorWidget extends StatelessWidget {
             },
           ),
         ),
-      ),
-    );
+      );
   }
 }

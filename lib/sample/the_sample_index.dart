@@ -9,13 +9,6 @@ import 'package:flutter_sample/sample/the_sample_network.dart';
 import 'package:flutter_sample/sample/the_sample_network_image.dart';
 import 'package:flutter_sample/sample/the_sample_shopping.dart';
 
-//程序入口
-// void main() {
-//   runApp(new MaterialApp(
-//     title: '首页',
-//     home: new SampleIndex(),
-//   ));
-// }
 
 class SampleIndex extends StatelessWidget {
   @override

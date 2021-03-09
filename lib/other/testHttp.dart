@@ -16,9 +16,7 @@ void main() {
 class HttpClientApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new MyHomePage(),
-    );
+    return   MyHomePage(    );
   }
 }
 

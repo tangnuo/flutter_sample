@@ -6,10 +6,7 @@ class GestureDemoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: title,
-      home: new _MyHomePage(title),
-    );
+    return _MyHomePage(title);
   }
 }
 
@@ -56,10 +53,7 @@ class InkWellDemoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: title,
-      home: new _MyHomePage2(title),
-    );
+    return _MyHomePage2(title);
   }
 }
 
@@ -104,34 +98,30 @@ class DismissingApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final title = '滑动关闭效果';
 
-    return new MaterialApp(
-      title: title,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            final item = items[index];
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          final item = items[index];
 
-            return Dismissible(
-              key: Key(item),
-              onDismissed: (dir) {
-                items.removeAt(index);
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text("$item dismissed")));
-              },
-              background: Container(color: Colors.red),
-              child: ListTile(title: Text('$item')),
-            );
-          },
-          itemCount: items.length,
-        ),
+          return Dismissible(
+            key: Key(item),
+            onDismissed: (dir) {
+              items.removeAt(index);
+              Scaffold.of(context)
+                  .showSnackBar(SnackBar(content: Text("$item dismissed")));
+            },
+            background: Container(color: Colors.red),
+            child: ListTile(title: Text('$item')),
+          );
+        },
+        itemCount: items.length,
       ),
     );
   }
 }
-
 
 class DismissibleWidget2 extends StatelessWidget {
   final List<String> items;
@@ -140,29 +130,26 @@ class DismissibleWidget2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Dismissible示例'),
-        ),
-        body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return Dismissible(
-              key: Key(item),
-              onDismissed: (direction) {
-                items.removeAt(index);
-                print(index);
-              },
-              child: ListTile(
-                leading: Icon(Icons.access_time),
-                title: Text('${items[index]}'),
-              ),
-            );
-          },
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dismissible示例'),
+      ),
+      body: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return Dismissible(
+            key: Key(item),
+            onDismissed: (direction) {
+              items.removeAt(index);
+              print(index);
+            },
+            child: ListTile(
+              leading: Icon(Icons.access_time),
+              title: Text('${items[index]}'),
+            ),
+          );
+        },
       ),
     );
   }

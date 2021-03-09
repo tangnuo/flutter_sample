@@ -63,12 +63,7 @@ class _MyAppState extends State<HttpApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fetch Data Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text('Fetch Data Example'),
         ),
@@ -87,7 +82,6 @@ class _MyAppState extends State<HttpApp> {
             },
           ),
         ),
-      ),
     );
   }
 }
@@ -109,12 +103,9 @@ class WebSocketApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'WebSocket Demo';
-    return MaterialApp(
-      title: title,
-      home: MyHomePage(
+    return  MyHomePage(
         title: title,
         channel: IOWebSocketChannel.connect('ws://echo.websocket.org'),
-      ),
     );
   }
 }
@@ -189,13 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
 class DioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '新闻列表',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: _MyHomePage(title: '新闻列表'),
-    );
+    return _MyHomePage(title: '新闻列表');
   }
 }
 
