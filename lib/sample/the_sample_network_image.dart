@@ -1,6 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 var imageUrl =
     "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3363295869,2467511306&fm=26&gp=0.jpg";
@@ -76,18 +76,15 @@ class ImageApp3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'Cached Images';
-    return new MaterialApp(
-      title: title,
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text(title),
-        ),
-        body: new Center(
-          child: new CachedNetworkImage(
-            imageUrl: imageUrl,
-            placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-          ),
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text(title),
+      ),
+      body: new Center(
+        child: new CachedNetworkImage(
+          imageUrl: imageUrl,
+          placeholder: (context, url) => CircularProgressIndicator(),
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
       ),
     );

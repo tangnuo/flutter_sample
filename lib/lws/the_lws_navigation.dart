@@ -7,9 +7,7 @@ class LwsBottomNavigationBarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyWidget(),
-    );
+    return MyWidget();
   }
 }
 
@@ -69,9 +67,7 @@ class _MyState extends State<MyWidget> {
 class LwsTabBarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyTabController(),
-    );
+    return MyTabController();
   }
 }
 
@@ -107,9 +103,7 @@ class MyTabController extends StatelessWidget {
 class LwsTabBarApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyStatefulWidget(),
-    );
+    return MyStatefulWidget();
   }
 }
 
@@ -163,9 +157,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
 class LwsDrawerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyStatefulWidget2(),
-    );
+    return MyStatefulWidget2();
   }
 }
 
@@ -182,7 +174,9 @@ class _DrawerState extends State<MyStatefulWidget2> {
             UserAccountsDrawerHeader(
               accountName: Text('唐诺'),
               accountEmail: Text('caowj1104@163.com'),
-              currentAccountPicture: CircleAvatar(child: Text('X'),),
+              currentAccountPicture: CircleAvatar(
+                child: Text('X'),
+              ),
             ),
             ListTile(
               leading: Icon(Icons.local_post_office),

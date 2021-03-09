@@ -8,9 +8,7 @@ import 'package:flutter/material.dart';
 class LwsBasicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Welcome to Flutter",
-      home: Scaffold(
+    return Scaffold(
           appBar: AppBar(
             title: Text('Basic Widget'),
           ),
@@ -73,8 +71,7 @@ class LwsBasicApp extends StatelessWidget {
                 margin: EdgeInsets.all(10.0),
               ),
             ],
-          )),
-    );
+          ));
   }
 }
 
@@ -83,8 +80,7 @@ class LwsBasicApp extends StatelessWidget {
 class LwsScaffoldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Scaffold示例'),
           actions: <Widget>[
@@ -115,7 +111,6 @@ class LwsScaffoldApp extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
         ),
-      ),
-    );
+      );
   }
 }

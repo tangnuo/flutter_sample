@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+// void main() {
   //示例1：默认布局
   // runApp(MyApp());
 
@@ -24,79 +24,36 @@ void main() {
   // ));
 
   //示例5：根据用户输入改变widget
-  runApp(new MaterialApp(
-    title: 'Flutter Tutorial',
-    home: new MyCounter(),
-  ));
-}
-
-//////////////////////////// 示例1 /////////////////////////////////
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  final String title;
-
-  const MyHomePage({Key key, this.title = ""}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have clicked the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
+//   runApp(new MaterialApp(
+//     title: 'Flutter Tutorial',
+//     home: new MyCounter(),
+//   ));
+// }
 
 //////////////////////////// 示例2 /////////////////////////////////
 
-class MyAppBar extends StatelessWidget {
-  MyAppBar({this.title});
+class MyScaffold extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Material(
+      child: new Column(children: <Widget>[
+        new _MyAppBar(
+          title: new Text(
+            "Example Title",
+            style: Theme.of(context).primaryTextTheme.title,
+          ),
+        ),
+        new Expanded(
+            child: new Center(
+          child: new Text("Hello World"),
+        ))
+      ]),
+    );
+  }
+}
+
+ class _MyAppBar extends StatelessWidget {
+   _MyAppBar({this.title});
 
   final Widget title;
 
@@ -119,26 +76,6 @@ class MyAppBar extends StatelessWidget {
               icon: new Icon(Icons.search), tooltip: 'Search', onPressed: null)
         ],
       ),
-    );
-  }
-}
-
-class MyScaffold extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Material(
-      child: new Column(children: <Widget>[
-        new MyAppBar(
-          title: new Text(
-            "Example Title",
-            style: Theme.of(context).primaryTextTheme.title,
-          ),
-        ),
-        new Expanded(
-            child: new Center(
-          child: new Text("Hello World"),
-        ))
-      ]),
     );
   }
 }
@@ -198,8 +135,8 @@ class MyButton extends StatelessWidget {
 ///////////////////////////  示例5 ///////////////////////////////
 
 /// 显示 计数器
-class CounterDisplay extends StatelessWidget {
-  CounterDisplay({this.count = 0});
+class _CounterDisplay extends StatelessWidget {
+  _CounterDisplay({this.count = 0});
 
   final int count;
 
@@ -210,8 +147,8 @@ class CounterDisplay extends StatelessWidget {
 }
 
 /// 更改 计数器
-class CounterIncrementor extends StatelessWidget {
-  CounterIncrementor({this.onPressed});
+class _CounterIncrementor extends StatelessWidget {
+  _CounterIncrementor({this.onPressed});
 
   final VoidCallback onPressed;
 
@@ -246,8 +183,8 @@ class _MyCounterState extends State<MyCounter> {
   @override
   Widget build(BuildContext context) {
     return new Row(children: <Widget>[
-      new CounterIncrementor(onPressed: _increment),
-      new CounterDisplay(count: _counter),
+      new _CounterIncrementor(onPressed: _increment),
+      new _CounterDisplay(count: _counter),
     ]);
   }
 }

@@ -20,9 +20,7 @@ class LwsSampleIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = "LWS-Flutter";
-    return new MaterialApp(
-      title: title,
-      home: new Scaffold(
+    return Scaffold(
         appBar: new AppBar(
           title: new Text(title),
         ),
@@ -127,7 +125,6 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

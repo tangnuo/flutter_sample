@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 //程序入口
-void main() {
-  runApp(new FriendlychatApp());
-}
+// void main() {
+//   runApp(new FriendlychatApp());
+// }
 
 const String _name = "caowj"; //聊天帐号昵称
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() => runApp(LwsPlatformApp1());
+// void main() => runApp(LwsPlatformApp1());
 
 /// 1、Flutter 调用Android
 /// http://liuwangshu.cn/flutter/primer/13-platform-channel.html
