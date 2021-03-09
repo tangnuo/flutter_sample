@@ -1,4 +1,3 @@
-//聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
 import 'package:flutter_app/sample/the_sample1.dart';
 import 'package:flutter_app/sample/the_sample_handling.dart' as handling;

@@ -1,4 +1,3 @@
-//聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
 import 'package:flutter_app/lws/the_lws_basic_widget.dart';
 import 'package:flutter_app/lws/the_lws_gesture.dart';
