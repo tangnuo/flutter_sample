@@ -21,7 +21,7 @@ import 'package:flutter_app/sample/the_sample_shopping.dart';
 class SampleIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = "Basic List";
+    final title = "Flutter中文网示例";
     var keyList = routers.keys.toList();
 
     return new MaterialApp(

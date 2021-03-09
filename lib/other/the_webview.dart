@@ -24,8 +24,8 @@ class _WebViewPageState extends State<WebViewPage> {
       ),
       child: SafeArea(
         child: WebView(
-          // initialUrl: "https://github.com/dengfa/gsy_flutter_app/",
-          initialUrl: "https://www.baidu.com/",
+          initialUrl: "https://github.com/CarGuo/gsy_flutter_demo",
+          // initialUrl: "https://www.baidu.com/",
           //JS执行模式 是否允许JS执行
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (controller) {
