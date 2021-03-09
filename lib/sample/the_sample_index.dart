@@ -21,35 +21,29 @@ class SampleIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = "Flutter中文网示例";
-    var keyList = routers.keys.toList();
-
-    return new MaterialApp(
-      title: title,
-      routes: routers, //关键点
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text(title),
-        ),
-        body: new Container(
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.of(context,rootNavigator: true).pushNamed(keyList[index]);
-                  // Navigator.pushNamed(context, keyList[index]);
-                },
-                child: Card(
-                  child: new Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    height: 50,
-                    child: new Text(routers.keys.toList()[index]),
-                  ),
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text(title),
+      ),
+      body: new Container(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: routers.values.toList()[index]));
+              },
+              child: Card(
+                child: new Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  child: new Text(routers.keys.toList()[index]),
                 ),
-              );
-            },
-            itemCount: routers.length,
-          ),
+              ),
+            );
+          },
+          itemCount: routers.length,
         ),
       ),
     );
