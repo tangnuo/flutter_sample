@@ -4,13 +4,12 @@ import 'package:flutter_app/lws/the_lws_index.dart';
 import 'package:flutter_app/other/chatPage.dart';
 import 'package:flutter_app/other/the_webview.dart';
 import 'package:flutter_app/sample/the_sample_index.dart';
-// import 'lws/the_lws_index.dart';
-
 
 //程序入口
 void main() {
   runApp(new MaterialApp(
     title: '首页',
+    routes: routers, //关键点
     home: new MainApp(),
   ));
 }
@@ -18,53 +17,40 @@ void main() {
 class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var keyList = routers.keys.toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("主页面"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RaisedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //跳转聊天页面
-                  return new FriendlychatApp();
-                }));
+      body: new Container(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(keyList[index]);
+                // Navigator.pushNamed(context, keyList[index]);
               },
-              child: Text("聊天"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //跳转聊天页面
-                  return new SampleIndex();
-                }));
-              },
-              child: Text("Flutter中文网示例"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //跳转聊天页面
-                  return LwsSampleIndex();
-                }));
-              },
-              child: Text("LWS-Flutter"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //跳转聊天页面
-                  return WebViewPage();
-                }));
-              },
-              child: Text("GSY_flutter_demo"),
-            ),
-          ],
+              child: Card(
+                child: new Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  child: new Text(routers.keys.toList()[index]),
+                ),
+              ),
+            );
+          },
+          itemCount: routers.length,
         ),
       ),
     );
   }
 }
+
+Map<String, WidgetBuilder> routers = {
+  "1、聊天": (context) => FriendlychatApp(),
+  "2、Flutter中文网示例": (context) => SampleIndex(),
+  "3、LWS-Flutter": (context) => LwsSampleIndex(),
+  "4、GSY_flutter_demo": (context) => WebViewPage(),
+};

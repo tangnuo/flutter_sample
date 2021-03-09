@@ -1,13 +1,13 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
-import 'file:///E:/github_workspace/flutter_demo/lib/sample/the_sample1.dart';
-import 'file:///E:/github_workspace/flutter_demo/lib/sample/the_sample_handling.dart' as handling;
-import 'file:///E:/github_workspace/flutter_demo/lib/sample/the_sample_layout.dart';
-import 'file:///E:/github_workspace/flutter_demo/lib/sample/the_sample_list.dart';
-import 'file:///E:/github_workspace/flutter_demo/lib/sample/the_sample_namer.dart';
+import 'package:flutter_app/sample/the_sample1.dart';
+import 'package:flutter_app/sample/the_sample_handling.dart' as handling;
+import 'package:flutter_app/sample/the_sample_layout.dart';
+import 'package:flutter_app/sample/the_sample_list.dart';
+import 'package:flutter_app/sample/the_sample_namer.dart';
 import 'package:flutter_app/sample/the_sample_navigation.dart';
 import 'package:flutter_app/sample/the_sample_network.dart';
-import 'file:///E:/github_workspace/flutter_demo/lib/sample/the_sample_network_image.dart';
+import 'package:flutter_app/sample/the_sample_network_image.dart';
 import 'package:flutter_app/sample/the_sample_shopping.dart';
 
 //程序入口
@@ -37,6 +37,7 @@ class SampleIndex extends StatelessWidget {
               return InkWell(
                 onTap: () {
                   Navigator.of(context).pushNamed(keyList[index]);
+                  // Navigator.pushNamed(context, keyList[index]);
                 },
                 child: Card(
                   child: new Container(
@@ -57,9 +58,11 @@ class SampleIndex extends StatelessWidget {
 }
 
 Map<String, WidgetBuilder> routers = {
-  "1、基础 Widget 自由组合": (context) {
-    return new MyScaffold();
-  },
+  // "1、基础 Widget 自由组合": (context) {
+  //   return new MyScaffold();
+  // },
+  "1、基础 Widget 自由组合": (context) => MyScaffold(),
+
   "2、使用 Material 组件": (context) {
     return new TutorialHome();
   },
@@ -121,7 +124,5 @@ Map<String, WidgetBuilder> routers = {
     // return new WebSocketApp();
     return new DioApp();
   },
-  "12、构建布局": (context) {
-    return new MyLayoutApp();
-  },
+  "12、构建布局": (context) => MyLayoutApp(),
 };
