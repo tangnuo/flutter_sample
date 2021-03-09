@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/lws/the_lws_basic_widget.dart';
-import 'package:flutter_app/lws/the_lws_gesture.dart';
-import 'package:flutter_app/lws/the_lws_layout.dart';
-import 'package:flutter_app/lws/the_lws_navigation.dart';
-import 'package:flutter_app/lws/the_lws_platform_channel.dart';
-import 'package:flutter_app/lws/the_lws_resource.dart';
-import 'package:flutter_app/lws/the_lws_routes.dart';
-import 'package:flutter_app/lws/the_lws_scrolling.dart';
+import 'package:flutter_sample/lws/the_lws_basic_widget.dart';
+import 'package:flutter_sample/lws/the_lws_gesture.dart';
+import 'package:flutter_sample/lws/the_lws_layout.dart';
+import 'package:flutter_sample/lws/the_lws_navigation.dart';
+import 'package:flutter_sample/lws/the_lws_platform_channel.dart';
+import 'package:flutter_sample/lws/the_lws_resource.dart';
+import 'package:flutter_sample/lws/the_lws_routes.dart';
+import 'package:flutter_sample/lws/the_lws_scrolling.dart';
 
 //程序入口
 // void main() {

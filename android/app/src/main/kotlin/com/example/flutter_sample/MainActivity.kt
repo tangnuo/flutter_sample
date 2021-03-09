@@ -1,4 +1,4 @@
-package com.example.flutter_app
+package com.example.flutter_sample
 
 import android.app.AlertDialog
 import android.os.Bundle

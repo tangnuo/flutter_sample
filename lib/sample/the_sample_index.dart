@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/sample/the_sample1.dart';
-import 'package:flutter_app/sample/the_sample_handling.dart' as handling;
-import 'package:flutter_app/sample/the_sample_layout.dart';
-import 'package:flutter_app/sample/the_sample_list.dart';
-import 'package:flutter_app/sample/the_sample_namer.dart';
-import 'package:flutter_app/sample/the_sample_navigation.dart';
-import 'package:flutter_app/sample/the_sample_network.dart';
-import 'package:flutter_app/sample/the_sample_network_image.dart';
-import 'package:flutter_app/sample/the_sample_shopping.dart';
+import 'package:flutter_sample/sample/the_sample1.dart';
+import 'package:flutter_sample/sample/the_sample_handling.dart' as handling;
+import 'package:flutter_sample/sample/the_sample_layout.dart';
+import 'package:flutter_sample/sample/the_sample_list.dart';
+import 'package:flutter_sample/sample/the_sample_namer.dart';
+import 'package:flutter_sample/sample/the_sample_navigation.dart';
+import 'package:flutter_sample/sample/the_sample_network.dart';
+import 'package:flutter_sample/sample/the_sample_network_image.dart';
+import 'package:flutter_sample/sample/the_sample_shopping.dart';
 
 //程序入口
 // void main() {
@@ -35,7 +35,7 @@ class SampleIndex extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed(keyList[index]);
+                  Navigator.of(context,rootNavigator: true).pushNamed(keyList[index]);
                   // Navigator.pushNamed(context, keyList[index]);
                 },
                 child: Card(

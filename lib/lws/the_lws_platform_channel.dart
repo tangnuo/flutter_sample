@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 /// http://liuwangshu.cn/flutter/primer/13-platform-channel.html
 class LwsPlatformApp1 extends StatelessWidget {
   static const platformChannel =
-      const MethodChannel('com.example.flutter_app/dialog'); //1
+      const MethodChannel('com.example.flutter_sample/dialog'); //1
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class LwsPlatformApp2 extends StatefulWidget {
 
 class MyAppState extends State<LwsPlatformApp2> {
   static const platformChannel =
-      const MethodChannel('com.example.flutter_app/text');
+      const MethodChannel('com.example.flutter_sample/text');
 
   String textContent = 'Flutter端初始文字';
 

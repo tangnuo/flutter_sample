@@ -1,9 +1,9 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
-import 'package:flutter_app/lws/the_lws_index.dart';
-import 'package:flutter_app/other/chatPage.dart';
-import 'package:flutter_app/other/the_webview.dart';
-import 'package:flutter_app/sample/the_sample_index.dart';
+import 'package:flutter_sample/lws/the_lws_index.dart';
+import 'package:flutter_sample/other/chatPage.dart';
+import 'package:flutter_sample/other/the_webview.dart';
+import 'package:flutter_sample/sample/the_sample_index.dart';
 
 //程序入口
 void main() {
