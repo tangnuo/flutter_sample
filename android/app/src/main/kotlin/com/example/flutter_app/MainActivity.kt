@@ -3,23 +3,27 @@ package com.example.flutter_app
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodCall
+import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
 
-class MainActivity: FlutterActivity() {
-    private var methodChannel: MethodChannel? = null
+class MainActivity : FlutterActivity() {
+    private lateinit var methodChannel: MethodChannel
 
-    protected fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //io.flutter.app.FlutterActivity 需要代码手动注册；
 //        GeneratedPluginRegistrant.registerWith(this);//1、注册插件
 //        methodChannel = new MethodChannel(getFlutterView(), "com.example.flutter_demo/dialog");//2、创建一个MethodChannel
 
 //        methodChannel = new MethodChannel(getFlutterEngine().getDartExecutor().getBinaryMessenger(), "com.example.flutter_demo/dialog");//2、创建一个MethodChannel
-        methodChannel = MethodChannel(getFlutterEngine().getDartExecutor().getBinaryMessenger(), "com.example.flutter_demo/text") //2、创建一个MethodChannel
-        methodChannel.setMethodCallHandler(object : MethodCallHandler() {
+        methodChannel = MethodChannel(flutterEngine?.dartExecutor?.binaryMessenger, "com.example.flutter_demo/text") //2、创建一个MethodChannel
+        methodChannel.setMethodCallHandler(object : MethodChannel.MethodCallHandler {
             //3、监听回调的数据
-            fun onMethodCall(methodCall: MethodCall, result: MethodChannel.Result) {
+            override fun onMethodCall(methodCall: MethodCall, result: MethodChannel.Result) {
                 if ("dialog" == methodCall.method) {
                     if (methodCall.hasArgument("content")) {
                         showAlertDialog()
@@ -45,28 +49,27 @@ class MainActivity: FlutterActivity() {
     }
 
 
-    protected fun onResume() {
+    override fun onResume() {
         super.onResume()
-        val map: MutableMap<*, *> = HashMap<Any?, Any?>()
+        val map: MutableMap<String, String> = mutableMapOf()
         map["content"] = "这是Android传递给Flutter的值"
-        methodChannel.invokeMethod("showText", map, object : Result() {
-            //2
-            fun success(o: Any) {
-                Log.d("caowj", "成功：$o")
-            }
-
-            fun error(errorCode: String, errorMsg: String, errorDetail: Any) {
-                Log.d("caowj", "errorCode:$errorCode errorMsg:$errorMsg errorDetail:$errorDetail")
-            }
-
-            fun notImplemented() {
+        methodChannel.invokeMethod("showText", map, object : MethodChannel.Result {
+            override fun notImplemented() {
                 Log.d("caowj", "notImplemented")
+            }
+
+            override fun error(errorCode: String?, errorMessage: String?, errorDetails: Any?) {
+                Log.d("caowj", "errorCode:$errorCode errorMsg:$errorMessage errorDetail:$errorDetails")
+            }
+
+            override fun success(result: Any?) {
+                Log.d("caowj", "成功：$result")
             }
         })
     }
 
-    fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
+    override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         //  FlutterLogger.i("FlutterLoader configureFlutterEngine =" );
-        GeneratedPluginRegistrant.registerWith(flutterEngine.getPlugins())
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
     }
 }
