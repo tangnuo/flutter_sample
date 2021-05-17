@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/other/shared_preferences/the_shared_preferences.dart';
 import 'package:flutter_sample/other/the_permission.dart';
+import 'package:flutter_sample/other/the_pick_image.dart';
 
 import 'the_file.dart';
 
@@ -43,6 +44,16 @@ class OtherSampleIndex extends StatelessWidget {
                 }));
               },
               child: Text("3、Shared Preferences操作"),
+            ),
+          ),
+          ListTile(
+            title: new ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ImagePickerWidget();
+                }));
+              },
+              child: Text("4、选择相册图片或拍照"),
             ),
           ),
         ],
