@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import 'MyToast.dart';
 
 class PermissionScaffoldApp extends StatelessWidget {
   @override
@@ -26,7 +29,18 @@ class PermissionScaffoldApp extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          // print('加载文件');
+          //Toast原生写法：
+          Fluttertoast.showToast(
+              msg: "flutter toast",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              backgroundColor: Colors.black45,
+              textColor: Colors.white,
+              fontSize: 16.0);
+
+          //Toast简单封装：
+          MyToast.show("flutter toast");
         },
       ),
     );
