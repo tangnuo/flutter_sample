@@ -35,6 +35,8 @@ dependencies:
   web_socket_channel: ^1.2.0
   dio: ^3.0.10  # dio 3.0.0为了支持Flutter Web，需要进行较大重构，因此无法直接兼容2.1.x
   webview_flutter: ^2.0.0
+  path_provider: ^1.6.18
+  permission_handler: ^3.2.0
 
 dev_dependencies:
   flutter_test:

@@ -5,6 +5,8 @@ import 'package:flutter_sample/other/chatPage.dart';
 import 'package:flutter_sample/other/the_webview.dart';
 import 'package:flutter_sample/sample/the_sample_index.dart';
 
+import 'other/the_other_index.dart';
+
 //程序入口
 void main() {
   runApp(new MaterialApp(
@@ -52,4 +54,5 @@ Map<String, WidgetBuilder> routers = {
   "2、Flutter中文网示例": (context) => SampleIndex(),
   "3、LWS-Flutter": (context) => LwsSampleIndex(),
   "4、GSY_flutter_demo": (context) => WebViewPage(),
+  "5、常用的三方插件": (context) => OtherSampleIndex(),
 };
