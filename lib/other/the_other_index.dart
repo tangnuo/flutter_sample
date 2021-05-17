@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/other/shared_preferences/the_shared_preferences.dart';
 import 'package:flutter_sample/other/the_permission.dart';
+import 'package:flutter_sample/other/the_photo_view.dart';
 import 'package:flutter_sample/other/the_pick_image.dart';
 
 import 'the_file.dart';
@@ -54,6 +55,15 @@ class OtherSampleIndex extends StatelessWidget {
                 }));
               },
               child: Text("4、选择相册图片或拍照"),
+            ),
+          ),    ListTile(
+            title: new ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return PhotoViewApp();
+                }));
+              },
+              child: Text("5、图片缩放"),
             ),
           ),
         ],
