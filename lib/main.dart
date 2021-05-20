@@ -1,13 +1,11 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/lws/the_lws_index.dart';
 import 'package:flutter_sample/other/chatPage.dart';
 import 'package:flutter_sample/other/the_webview.dart';
 import 'package:flutter_sample/sample/the_sample_index.dart';
-
 import 'arch/common/net_error_helper.dart';
 import 'arch/log/logger.dart';
 import 'arch/model/token_model.dart';

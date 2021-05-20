@@ -9,9 +9,8 @@ class SimpleListDialog<T> extends StatefulWidget {
   @override
   State<StatefulWidget> createState()=>SimpleListState();
 }
+
 class SimpleListState extends State<SimpleListDialog> {
-
-
   int _selectId = -1;
 
   @override

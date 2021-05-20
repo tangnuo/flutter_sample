@@ -1,7 +1,7 @@
 class HttpApi {
-  static const String BASE_SERVER = "police-app/app-server/";
-
   static String BASE_URL = "http://dolphin-dev.kedacom.com/";
+
+  static const String BASE_SERVER = "police-app/app-server/";
 
   static String LOGIN_IN = BASE_SERVER + "oauth2/password";
 

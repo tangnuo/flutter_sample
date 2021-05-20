@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_sample/arch/bloc/car_repo.dart';
 import 'package:flutter_sample/arch/common/Colors.dart';
 import 'package:flutter_sample/arch/common/image_helper.dart';
@@ -23,8 +22,6 @@ import 'package:flutter_sample/arch/util/toast_util.dart';
 class CarListPage extends StatefulWidget {
   CarListPage();
 
-  // final UserInfoModel userInfo;
-
   @override
   _CarListPageState createState() => _CarListPageState();
 }
@@ -39,19 +36,6 @@ class _CarListPageState extends State<CarListPage> {
   bool noData = false;
   int totalPage = 0;
   CarSearchFilterModel _carSearchFilterModel = CarSearchFilterModel();
-
-  // final ButtonStyle _buttonStyle = ButtonStyle(
-  //   textStyle: MaterialStateProperty.all(TextStyle(fontSize: 14)),
-  //   padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 9)),
-  //   foregroundColor: MaterialStateProperty.all(Colors.black),
-  //   backgroundColor: MaterialStateProperty.all(Colors.white),
-  //   shape: MaterialStateProperty.all(
-  //     StadiumBorder(
-  //       side:
-  //           BorderSide(color: Colors.white, width: 1, style: BorderStyle.solid),
-  //     ),
-  //   ),
-  // );
 
   @override
   void initState() {
@@ -475,59 +459,4 @@ class _CarListPageState extends State<CarListPage> {
       print(e1);
     }
   }
-
-// _openFilter() {
-//   Navigator.push(
-//           context,
-//           MaterialPageRoute(
-//               builder: (context) =>
-//                   CarListFilterPage(carFilterModel: _carSearchFilterModel)))
-//       .then((value) {
-//     if (value is CarSearchFilterModel) {
-//       setState(() {
-//         _carSearchFilterModel = value;
-//       });
-//     }
-//
-//     listRefresh();
-//   });
-// }
-
-// _openEditPage(context) {
-//   Navigator.of(context).push(new MaterialPageRoute(builder: (_){
-//     return  CarDetailInfoPage(id : "");
-//   }));
-// }
-
-// _listItemClick(CarListDetailModel carListDetailModel) {
-//   Navigator.of(context).push(new MaterialPageRoute(builder: (_){
-//     return  CarDetailViewPage(id : carListDetailModel.clbh);
-//   }));
-// }
-//
-// _updateCarStatus(CarListDetailModel carListDetailModel,List<DictModel> carStatusList, int value) async {
-//   showDialog(
-//       context: context,
-//       barrierDismissible: false,
-//       builder: (ctx) =>
-//           LoadingDialog("数据提交中...", () => {}));
-//   try {
-//     BaseHttpResult<bool> baseHttpResult = await CarRepo().updateCarStatus(carListDetailModel.clbh,carStatusList[value].no);
-//     bool result = baseHttpResult.result;
-//     if(result??false) {
-//       Navigator.pop(context);
-//       setState(() {
-//         carListDetailModel.clzt=carStatusList[value].codeItemName;
-//       });
-//     } else {
-//       ToastUtil.showToast("状态更新失败");
-//       Navigator.pop(context);
-//     }
-//   } catch (e) {
-//     ToastUtil.showToast('更新状态失败');
-//     Navigator.pop(context);
-//     MyLogger.instance.error('joinin', e);
-//
-//   }
-// }
 }
