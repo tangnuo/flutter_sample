@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/other/shared_preferences/the_shared_preferences.dart';
 import 'package:flutter_sample/other/the_permission.dart';
 import 'package:flutter_sample/other/the_photo_view.dart';
 import 'package:flutter_sample/other/the_pick_image.dart';
+import 'package:flutter_sample/other/the_shared_preferences.dart';
 
 import 'the_file.dart';
 

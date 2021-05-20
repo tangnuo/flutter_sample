@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart' as dio;
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -63,25 +64,25 @@ class _MyAppState extends State<HttpApp> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: Text('Fetch Data Example'),
-        ),
-        body: Center(
-          child: FutureBuilder<Album>(
-            future: futureAlbum,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data.title);
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Fetch Data Example'),
+      ),
+      body: Center(
+        child: FutureBuilder<Album>(
+          future: futureAlbum,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Text(snapshot.data.title);
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
 
-              // By default, show a loading spinner.
-              return CircularProgressIndicator();
-            },
-          ),
+            // By default, show a loading spinner.
+            return CircularProgressIndicator();
+          },
         ),
+      ),
     );
   }
 }
@@ -103,9 +104,9 @@ class WebSocketApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'WebSocket Demo';
-    return  MyHomePage(
-        title: title,
-        channel: IOWebSocketChannel.connect('ws://echo.websocket.org'),
+    return MyHomePage(
+      title: title,
+      channel: IOWebSocketChannel.connect('ws://echo.websocket.org'),
     );
   }
 }
@@ -248,9 +249,14 @@ Future<dio.Response> _getNews() async {
   String type = "keji";
 
   print("开始请求数据");
+  dio.Dio myDio = dio.Dio();
+  myDio.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
 
-  dio.Response response = await dio.Dio()
-      .get(url, queryParameters: {"type": type, "key": key}); //GET请求
+  dio.Response response = await myDio.get(
+    url,
+    queryParameters: {"type": type, "key": key},
+    options: buildCacheOptions(Duration(days: 7)),
+  ); //GET请求
 
 //   Response response;
   //1、GET请求：

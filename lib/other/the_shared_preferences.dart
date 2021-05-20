@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'basic_data.dart';
-import 'utils_storage.dart';
-import 'cache_bean.dart';
-import 'cache_bean_by_utils.dart';
+import '../arch/shared_preferences/basic_data.dart';
+import '../arch/shared_preferences/utils_storage.dart';
+import '../arch/shared_preferences/cache_bean.dart';
+import '../arch/shared_preferences/cache_bean_by_utils.dart';
 
 
 /// https://gitee.com/qiuyu123/fluttercachedemo
