@@ -101,7 +101,7 @@ class _CurStatusDialogState extends State<CurStatusDialog> {
                         child: Image(
                           width: 16,
                           height: 16,
-                          image: AssetImage("image/ic_close_grey.png"),
+                          image: AssetImage("images/ic_close_grey.png"),
                           fit: BoxFit.cover,
                         ),
                       ),

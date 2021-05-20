@@ -1,13 +1,10 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter_sample/arch/log/logger.dart';
 import 'package:flutter_sample/arch/net/http_apis.dart';
 import 'package:flutter_sample/arch/shared_preferences/user.dart';
-
 import 'package:flutter_sample/arch/util/preference_util.dart';
-
 import 'base_http_response.dart';
 import 'http_logger.dart';
 

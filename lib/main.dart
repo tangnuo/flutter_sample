@@ -32,10 +32,23 @@ void main() {
 
 void init() async {
   MyLogger.instance.init();
-  onLogin();
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
+
+  @override
+  _MainAppState createState() {
+  return  new _MainAppState();
+  }
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
+  void initState() {
+    super.initState();
+    onLogin();
+  }
+
   @override
   Widget build(BuildContext context) {
     var keyList = routers.keys.toList();
@@ -77,42 +90,42 @@ Map<String, WidgetBuilder> routers = {
   "6、车辆--综合示例": (context) => CarListPage(),
 };
 
-void onLogin()   {
+void onLogin() {
   // showDialog(
   //     context: context,
   //     barrierDismissible: true,
   //     builder: (ctx) => LoadingDialog("提交中...", () => {}));
 
-  loginIn().then((tokenModel) => {
-
-    print("token:"+tokenModel.jwt_token),
-    PreferenceUtil.setJWTToken(tokenModel.jwt_token),
-    // getUserInfo().then(
-    //       (userinfo)  {
-    //     Navigator.of(context).maybePop().then((_) {
-    //
-    //       if (rememberPassword)
-    //       {
-    //         PreferenceUtil.setUserName(_accountController.text);
-    //         PreferenceUtil.setPassword(_passwordController.text);
-    //         PreferenceUtil.setRememberPassword(rememberPassword);
-    //       }
-    //       Navigator.pushAndRemoveUntil(
-    //           context,
-    //           MaterialPageRoute(
-    //               builder: (context) =>
-    //               // DisasterList(userInfo: userinfo)
-    //               DisasterMain()
-    //           ),
-    //               (route)=>false);
-    //     });
-    //
-    //   },
-    // ).catchError((e)=>Navigator.of(context).maybePop()),
-    //
-    // PreferenceUtil.setAutoLogin(autoLogin)
-  }).catchError((e)=>
-  MyLogger.instance.info("登录异常："+e.toString()));
+  loginIn()
+      .then((tokenModel) => {
+            print("解析的token:" + tokenModel.jwt_token),
+            PreferenceUtil.setJWTToken(tokenModel.jwt_token),
+            // getUserInfo().then(
+            //       (userinfo)  {
+            //     Navigator.of(context).maybePop().then((_) {
+            //
+            //       if (rememberPassword)
+            //       {
+            //         PreferenceUtil.setUserName(_accountController.text);
+            //         PreferenceUtil.setPassword(_passwordController.text);
+            //         PreferenceUtil.setRememberPassword(rememberPassword);
+            //       }
+            //       Navigator.pushAndRemoveUntil(
+            //           context,
+            //           MaterialPageRoute(
+            //               builder: (context) =>
+            //               // DisasterList(userInfo: userinfo)
+            //               DisasterMain()
+            //           ),
+            //               (route)=>false);
+            //     });
+            //
+            //   },
+            // ).catchError((e)=>Navigator.of(context).maybePop()),
+            //
+            // PreferenceUtil.setAutoLogin(autoLogin)
+          })
+      .catchError((e) => MyLogger.instance.info("登录异常：" + e.toString()));
 }
 
 Future<TokenModel> loginIn() async {
@@ -120,8 +133,6 @@ Future<TokenModel> loginIn() async {
     final params = <String, dynamic>{
       'username': 'ers-app2',
       'password': 'kedacom123#'
-      // 'username': _accountController.text,
-      // 'password': _passwordController.text
     };
     Response response = await HttpManager.instance.dio.post(HttpApi.LOGIN_IN,
         queryParameters: params,

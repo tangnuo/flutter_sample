@@ -66,7 +66,7 @@ class SimpleListState extends State<SimpleListDialog> {
                 style: TextStyle(fontSize: 14, color: Color(0xFF333333)),
               )),
           Image.asset(
-            _selectId ==index?'image/ic_checked_blue.png':'image/ic_unchecked.png' ,
+            _selectId ==index?'images/ic_checked_blue.png':'images/ic_unchecked.png' ,
             width: 16,
             height: 16,
           ),

@@ -39,6 +39,7 @@ class _CarListPageState extends State<CarListPage> {
   bool noData = false;
   int totalPage = 0;
   CarSearchFilterModel _carSearchFilterModel = CarSearchFilterModel();
+
   // final ButtonStyle _buttonStyle = ButtonStyle(
   //   textStyle: MaterialStateProperty.all(TextStyle(fontSize: 14)),
   //   padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 9)),
@@ -61,7 +62,7 @@ class _CarListPageState extends State<CarListPage> {
       });
     });
     getinitData();
-    getRealUrl();//可以注释掉
+    // getRealUrl(); //可以注释掉
     listScrollController.addListener(() {
       if (listScrollController.position.pixels ==
           listScrollController.position.maxScrollExtent) {
@@ -251,128 +252,131 @@ class _CarListPageState extends State<CarListPage> {
       CarListDetailModel carListDetailModel = list[index];
 
       return GestureDetector(
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: index == 0
-                  ? BorderRadius.all(Radius.circular(8.0))
-                  : BorderRadius.all(Radius.circular(0.0))),
-          child: Column(children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top: 14, left: 19),
-              child: Row(
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: index == 0
+                    ? BorderRadius.all(Radius.circular(8.0))
+                    : BorderRadius.all(Radius.circular(0.0))),
+            child: Column(children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(top: 14, left: 19),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      ImageHelper.wrapAssets("car.png"),
+                      width: 16,
+                      height: 12,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Text(
+                        carListDetailModel.cphm,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF333333),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        alignment: Alignment.centerRight,
+                        padding: EdgeInsets.only(right: 13),
+                        child: TextButton(
+                            child: Row(
+                              children: [
+                                Text(carListDetailModel.clzt,
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Color(0xFF333333))),
+                                Image.asset(
+                                  ImageHelper.wrapAssets("juxing.png"),
+                                  width: 16,
+                                  height: 16,
+                                )
+                              ],
+                            ),
+                            onPressed: () => {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        int initSelected = CarRepo()
+                                            .getSelectedDict(carStatusList,
+                                                carListDetailModel.clzt);
+                                        return SimpleListDialog(
+                                            "请选择车辆状态", carStatusList,
+                                            initSelected: initSelected);
+                                      }).then((value) {
+                                    print("方法注释了：" + value);
+                                    // if (value != null && value > -1) {
+                                    // _updateCarStatus(carListDetailModel,carStatusList,value);
+                                    // }
+                                  })
+                                },
+                            style: ButtonStyle(
+                              textStyle: MaterialStateProperty.all(TextStyle(
+                                  fontSize: 14, color: Color(0xFF333333))),
+                              padding: MaterialStateProperty.all(
+                                  EdgeInsets.symmetric(horizontal: 12)),
+                              foregroundColor:
+                                  MaterialStateProperty.all(Colors.black),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Color(0xFFF3F5FC)),
+                              side: MaterialStateProperty.all(BorderSide(
+                                  color: Color(0xFFFFF4F6FD), width: 1)),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(11))),
+                              ),
+                            )))
+                  ],
+                ),
+              ),
+              Row(
                 children: [
-                  Image.asset(
-                    ImageHelper.wrapAssets("car.png"),
-                    width: 16,
-                    height: 12,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Text(
-                      carListDetailModel.cphm,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xFF333333),
-                          fontWeight: FontWeight.bold),
+                  Container(
+                    padding: EdgeInsets.only(left: 19),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          ImageHelper.wrapAssets("car.png"),
+                          width: 16,
+                          height: 16,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        new Text(
+                          carListDetailModel.cllx ?? "",
+                          style: TextStyle(
+                              fontSize: 16, color: CustomColors.cl_666666),
+                        ),
+                      ],
                     ),
                   ),
-                  Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      alignment: Alignment.centerRight,
-                      padding: EdgeInsets.only(right: 13),
-                      child: TextButton(
-                          child: Row(
-                            children: [
-                              Text(carListDetailModel.clzt,
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xFF333333))),
-                              Image.asset(
-                                ImageHelper.wrapAssets("juxing.png"),
-                                width: 16,
-                                height: 16,
-                              )
-                            ],
-                          ),
-                          onPressed: () => {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      int initSelected = CarRepo()
-                                          .getSelectedDict(carStatusList,
-                                              carListDetailModel.clzt);
-                                      return SimpleListDialog(
-                                          "请选择车辆状态", carStatusList,
-                                          initSelected: initSelected);
-                                    }).then((value) {
-                                  if (value != null && value > -1) {
-                                    // _updateCarStatus(carListDetailModel,carStatusList,value);
-
-                                    print("方法注释了：" + value);
-                                  }
-                                })
-                              },
-                          style: ButtonStyle(
-                            textStyle: MaterialStateProperty.all(TextStyle(
-                                fontSize: 14, color: Color(0xFF333333))),
-                            padding: MaterialStateProperty.all(
-                                EdgeInsets.symmetric(horizontal: 12)),
-                            foregroundColor:
-                                MaterialStateProperty.all(Colors.black),
-                            backgroundColor:
-                                MaterialStateProperty.all(Color(0xFFF3F5FC)),
-                            side: MaterialStateProperty.all(BorderSide(
-                                color: Color(0xFFFFF4F6FD), width: 1)),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(11))),
-                            ),
-                          )))
                 ],
               ),
-            ),
-            Row(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 19),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        ImageHelper.wrapAssets("car.png"),
-                        width: 16,
-                        height: 16,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      new Text(
-                        carListDetailModel.cllx ?? "",
-                        style: TextStyle(
-                            fontSize: 16, color: CustomColors.cl_666666),
-                      ),
-                    ],
-                  ),
+              Padding(
+                padding: EdgeInsets.only(top: 010),
+                child: Divider(
+                  height: 1,
+                  color: Color(0xFFECECEC),
+                  indent: 20,
+                  endIndent: 20,
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 010),
-              child: Divider(
-                height: 1,
-                color: Color(0xFFECECEC),
-                indent: 20,
-                endIndent: 20,
               ),
-            ),
-          ]),
-        ),
-        // onTap: () => _listItemClick(carListDetailModel),
-      );
+            ]),
+          ),
+          onTap: () => {
+                // _listItemClick(carListDetailModel),
+                print("item点击"),
+                ToastUtil.showToast("item点击"),
+              });
     } else {
       return getMoreWidget();
     }
@@ -409,7 +413,11 @@ class _CarListPageState extends State<CarListPage> {
           child: Align(
               alignment: Alignment.centerRight,
               child: IconButton(
-                // onPressed: () => _openFilter(),
+                onPressed: () => {
+                  // _openFilter(),
+                  print("筛选功能"),
+                  ToastUtil.showToast("筛选功能"),
+                },
                 padding: const EdgeInsets.all(0.0),
                 icon: Image.asset(
                   ImageHelper.wrapAssets("car.png"),
