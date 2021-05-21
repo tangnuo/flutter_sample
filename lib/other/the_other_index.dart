@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/other/bloc/login/the_login_ui.dart';
 import 'package:flutter_sample/other/the_permission.dart';
 import 'package:flutter_sample/other/the_photo_view.dart';
 import 'package:flutter_sample/other/the_pick_image.dart';
 import 'package:flutter_sample/other/the_shared_preferences.dart';
 
-import 'bloc/the_flutter_counter.dart';
+import 'bloc/counter/the_counter_ui.dart';
 import 'the_file.dart';
 
 /// 常用的三方库使用示例
@@ -72,10 +73,20 @@ class OtherSampleIndex extends StatelessWidget {
             title: new ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return BlocApp();
+                  return BlocCounterApp();
                 }));
               },
-              child: Text("5、flutter bloc"),
+              child: Text("5、flutter bloc-计步器"),
+            ),
+          ),
+          ListTile(
+            title: new ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return BlocLoginApp();
+                }));
+              },
+              child: Text("6、flutter bloc-登录"),
             ),
           ),
         ],
