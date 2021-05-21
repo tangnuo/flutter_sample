@@ -1,5 +1,5 @@
-
 import 'package:flutter_sample/arch/net/base_http_result.dart';
+import 'package:flutter_sample/generated/json/base_http_result_helper.dart';
 
 baseHttpResultFromJson(BaseHttpResult data, Map<String, dynamic> json) {
 	if (json['code'] != null) {

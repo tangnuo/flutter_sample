@@ -1,9 +1,5 @@
-
-
-
-
-import 'package:flutter_sample/arch/json/base/json_convert_content.dart';
-import 'package:flutter_sample/arch/json/base_http_result_helper.dart';
+import 'package:flutter_sample/generated/json/base/json_convert_content.dart';
+import 'package:flutter_sample/generated/json/base_http_result_helper.dart';
 
 class BaseHttpResult<T> with JsonConvert<BaseHttpResult> {
   String code;

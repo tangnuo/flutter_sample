@@ -1,4 +1,4 @@
-import 'package:flutter_sample/arch/json/base/json_convert_content.dart';
+import 'package:flutter_sample/generated/json/base/json_convert_content.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'org_model.g.dart';

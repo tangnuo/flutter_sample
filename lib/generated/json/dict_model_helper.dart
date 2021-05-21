@@ -1,7 +1,5 @@
-
-
-
 import 'package:flutter_sample/arch/model/dict_model.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 dictModelFromJson(DictModel data, Map<String, dynamic> json) {
 	if (json['codeItemName'] != null) {
