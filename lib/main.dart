@@ -98,30 +98,6 @@ void onLogin() {
       .then((tokenModel) => {
             print("解析的token:" + tokenModel.jwt_token),
             PreferenceUtil.setJWTToken(tokenModel.jwt_token),
-            // getUserInfo().then(
-            //       (userinfo)  {
-            //     Navigator.of(context).maybePop().then((_) {
-            //
-            //       if (rememberPassword)
-            //       {
-            //         PreferenceUtil.setUserName(_accountController.text);
-            //         PreferenceUtil.setPassword(_passwordController.text);
-            //         PreferenceUtil.setRememberPassword(rememberPassword);
-            //       }
-            //       Navigator.pushAndRemoveUntil(
-            //           context,
-            //           MaterialPageRoute(
-            //               builder: (context) =>
-            //               // DisasterList(userInfo: userinfo)
-            //               DisasterMain()
-            //           ),
-            //               (route)=>false);
-            //     });
-            //
-            //   },
-            // ).catchError((e)=>Navigator.of(context).maybePop()),
-            //
-            // PreferenceUtil.setAutoLogin(autoLogin)
           })
       .catchError((e) => MyLogger.instance.info("登录异常：" + e.toString()));
 }

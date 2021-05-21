@@ -4,6 +4,7 @@ import 'package:flutter_sample/other/the_photo_view.dart';
 import 'package:flutter_sample/other/the_pick_image.dart';
 import 'package:flutter_sample/other/the_shared_preferences.dart';
 
+import 'bloc/the_flutter_counter.dart';
 import 'the_file.dart';
 
 /// 常用的三方库使用示例
@@ -56,7 +57,8 @@ class OtherSampleIndex extends StatelessWidget {
               },
               child: Text("4、选择相册图片或拍照"),
             ),
-          ),    ListTile(
+          ),
+          ListTile(
             title: new ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -64,6 +66,16 @@ class OtherSampleIndex extends StatelessWidget {
                 }));
               },
               child: Text("5、图片缩放"),
+            ),
+          ),
+          ListTile(
+            title: new ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return BlocApp();
+                }));
+              },
+              child: Text("5、flutter bloc"),
             ),
           ),
         ],
