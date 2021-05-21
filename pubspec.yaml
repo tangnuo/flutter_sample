@@ -47,13 +47,16 @@ dependencies:
   intl: ^0.17.0
   event_bus: ^2.0.0
   logger: ^0.9.4
-  #json解析工具
-  json_serializable: ^3.5.1
+  #json注解
+  json_annotation: ^3.1.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  #json解析工具
+  json_serializable: ^3.5.1
+  build_runner: ^1.10.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
