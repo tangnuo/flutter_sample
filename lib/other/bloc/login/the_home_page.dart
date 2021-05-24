@@ -8,6 +8,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+/// 主页通过 LoginBloc 显示登录用户的信息
 class _HomePageState extends State<HomePage> {
   LoginBloc loginBloc;
 

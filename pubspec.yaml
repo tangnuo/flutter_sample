@@ -29,9 +29,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   english_words: ^3.1.0
-  flutter_bloc: ^6.1.1
+  flutter_bloc: ^6.1.1 #状态管理框架
   transparent_image: ^1.0.0
-  cached_network_image:  ^2.4.1
+  cached_network_image: ^2.4.1
   http: ^0.12.2
   web_socket_channel: ^1.2.0
   dio: ^3.0.10  # dio 3.0.0为了支持Flutter Web，需要进行较大重构，因此无法直接兼容2.1.x
@@ -40,23 +40,20 @@ dependencies:
   permission_handler: ^3.2.0
   fluttertoast: ^8.0.6
   shared_preferences: ^0.5.12+4
-  #图片选择或拍照
-  image_picker: ^0.6.7+21
+  image_picker: ^0.6.7+21  #图片选择或拍照
   photo_view: ^0.11.1
   dio_http_cache: ^0.2.11
   intl: ^0.17.0
   event_bus: ^2.0.0
   logger: ^0.9.4
-  #json注解
-  json_annotation: ^3.1.1
-  equatable: ^1.2.0
+  json_annotation: ^3.1.1  #json注解
+  equatable: ^1.2.0 #增强组件相等性判断
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  #json解析工具
-  json_serializable: ^3.5.1
+  json_serializable: ^3.5.1   #json解析工具
   build_runner: ^1.10.13
 
 # For information on the generic Dart part of this file, see the
