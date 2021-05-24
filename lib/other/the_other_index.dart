@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/other/bloc/counter_cubit/counter_page.dart';
 import 'package:flutter_sample/other/bloc/login/the_login_ui.dart';
 import 'package:flutter_sample/other/the_permission.dart';
 import 'package:flutter_sample/other/the_photo_view.dart';
@@ -87,6 +88,16 @@ class OtherSampleIndex extends StatelessWidget {
                 }));
               },
               child: Text("6、flutter bloc-登录"),
+            ),
+          ),
+          ListTile(
+            title: new ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CounterApp();
+                }));
+              },
+              child: Text("7、Cubit示例"),
             ),
           ),
         ],
