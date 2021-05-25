@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/sample/the_layout_flexible_expanded.dart';
 import 'package:flutter_sample/sample/the_sample1.dart';
 import 'package:flutter_sample/sample/the_sample_handling.dart' as handling;
 import 'package:flutter_sample/sample/the_sample_layout.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_sample/sample/the_sample_navigation.dart';
 import 'package:flutter_sample/sample/the_sample_network.dart';
 import 'package:flutter_sample/sample/the_sample_network_image.dart';
 import 'package:flutter_sample/sample/the_sample_shopping.dart';
-
 
 class SampleIndex extends StatelessWidget {
   @override
@@ -111,4 +111,5 @@ Map<String, WidgetBuilder> routers = {
     return new DioApp();
   },
   "12、构建布局": (context) => MyLayoutApp(),
+  "13、Flexible和 Expanded": (context) => LayoutApp(),
 };
