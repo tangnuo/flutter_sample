@@ -40,7 +40,9 @@ class _CarListPageState extends State<CarListPage> {
   @override
   void initState() {
     super.initState();
+    //监听事件
     eventBusFn = eventBus.on<CarEventFn>().listen((event) {
+      print("接收的值："+event.obj);
       Future.delayed(Duration(milliseconds: 1000), () {
         getinitData();
       });
