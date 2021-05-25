@@ -5,6 +5,7 @@ import 'package:flutter_sample/other/the_permission.dart';
 import 'package:flutter_sample/other/the_photo_view.dart';
 import 'package:flutter_sample/other/the_pick_image.dart';
 import 'package:flutter_sample/other/the_shared_preferences.dart';
+import 'package:flutter_sample/other/the_stream.dart';
 
 import 'bloc/counter/the_counter_ui.dart';
 import 'the_file.dart';
@@ -69,6 +70,15 @@ class OtherSampleIndex extends StatelessWidget {
               },
               child: Text("5、图片缩放"),
             ),
+          ),          ListTile(
+            title: new ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return StreamOnePage();
+                }));
+              },
+              child: Text("6、Flutter Stream"),
+            ),
           ),
           ListTile(
             title: new ElevatedButton(
@@ -77,7 +87,7 @@ class OtherSampleIndex extends StatelessWidget {
                   return BlocCounterApp();
                 }));
               },
-              child: Text("5、flutter bloc-计步器"),
+              child: Text("7、flutter bloc-计步器"),
             ),
           ),
           ListTile(
@@ -87,7 +97,7 @@ class OtherSampleIndex extends StatelessWidget {
                   return BlocLoginApp();
                 }));
               },
-              child: Text("6、flutter bloc-登录"),
+              child: Text("8、flutter bloc-登录"),
             ),
           ),
           ListTile(
@@ -97,7 +107,7 @@ class OtherSampleIndex extends StatelessWidget {
                   return CounterApp();
                 }));
               },
-              child: Text("7、Cubit示例"),
+              child: Text("9、Cubit示例"),
             ),
           ),
         ],
