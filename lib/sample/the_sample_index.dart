@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/sample/the_layout_flexible_expanded.dart';
 import 'package:flutter_sample/sample/the_sample1.dart';
+import 'package:flutter_sample/sample/the_sample_dialog.dart';
 import 'package:flutter_sample/sample/the_sample_handling.dart' as handling;
 import 'package:flutter_sample/sample/the_sample_layout.dart';
 import 'package:flutter_sample/sample/the_sample_list.dart';
@@ -112,4 +113,5 @@ Map<String, WidgetBuilder> routers = {
   },
   "12、构建布局": (context) => MyLayoutApp(),
   "13、Flexible和 Expanded": (context) => LayoutApp(),
+  "14、Flutter Dialog使用": (context) => DialogPage(),
 };
