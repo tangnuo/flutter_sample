@@ -159,7 +159,32 @@ class _BasicWidgetState extends State<BasicWidget> {
                   color: Colors.black12,
                 ),
               ),
-            )
+            ),
+            // 线性进度条高度指定为3
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: SizedBox(
+                height: 3,
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.grey[200],
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                  value: 0.5,
+                ),
+              ),
+            ),
+            // 圆形进度条直径指定为100
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20),
+              child: SizedBox(
+                height: 100,
+                width: 100,
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.grey[200],
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                  value: 0.7,
+                ),
+              ),
+            ),
           ],
         ),
       ),
