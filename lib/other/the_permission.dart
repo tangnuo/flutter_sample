@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/arch/util/toast_util.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import 'MyToast.dart';
 
 class PermissionScaffoldApp extends StatelessWidget {
   @override
@@ -40,7 +39,7 @@ class PermissionScaffoldApp extends StatelessWidget {
               fontSize: 16.0);
 
           //Toast简单封装：
-          MyToast.show("flutter toast");
+          ToastUtil.showToast("flutter toast");
         },
       ),
     );
@@ -55,7 +54,6 @@ Future<bool> _requestPermissions() async {
     PermissionGroup.camera,
     PermissionGroup.location,
   ]);
-
 
 //  申请结果
   PermissionStatus permissionStatus =
@@ -81,10 +79,10 @@ Future<bool> _requestPermissions() async {
   }
 }
 
-
-request() async{
+request() async {
   // 检查并请求权限
-  PermissionStatus status = await PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
+  PermissionStatus status =
+      await PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
   if (PermissionStatus.granted != status) {
     PermissionHandler().requestPermissions(<PermissionGroup>[
       PermissionGroup.storage,

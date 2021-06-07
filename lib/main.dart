@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/actual/the_actual_index.dart';
 import 'package:flutter_sample/lws/the_lws_index.dart';
 import 'package:flutter_sample/sample/the_sample_index.dart';
 
@@ -49,30 +50,45 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     var keyList = routers.keys.toList();
+    DateTime _lastPressedAt; //上次点击的时间
 
     return Scaffold(
       appBar: AppBar(
         title: Text("主页面"),
       ),
-      body: new Container(
-        child: ListView.builder(
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(keyList[index]);
-              },
-              child: Card(
-                child: new Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  height: 50,
-                  child: new Text(routers.keys.toList()[index]),
+      body: WillPopScope(
+        child: new Container(
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(keyList[index]);
+                },
+                child: Card(
+                  child: new Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    height: 50,
+                    child: new Text(routers.keys.toList()[index]),
+                  ),
                 ),
-              ),
-            );
-          },
-          itemCount: routers.length,
+              );
+            },
+            itemCount: routers.length,
+          ),
         ),
+        onWillPop: () async {
+          if (_lastPressedAt == null ||
+              (DateTime.now().difference(_lastPressedAt) >
+                  Duration(seconds: 2))) {
+            //两次点击间隔超过1秒，重新计时
+            _lastPressedAt = DateTime.now();
+            print(_lastPressedAt);
+            ToastUtil.showToast("2秒内连续按两次返回键退出");
+            return false;
+          }
+          return true;
+        },
       ),
     );
   }
@@ -82,7 +98,8 @@ Map<String, WidgetBuilder> routers = {
   "1、Flutter中文网示例": (context) => SampleIndex(),
   "2、LWS-Flutter": (context) => LwsSampleIndex(),
   "3、常用的三方插件": (context) => OtherSampleIndex(),
-  "4、车辆--综合示例": (context) => CarListPage(),
+  "4、车辆--综合示例": (context) => CarListPage(), //应急APP
+  "5、Flutter实战": (context) => ActualIndex(),
 };
 
 void onLogin() {
