@@ -1,6 +1,6 @@
 // 这是一个便捷类，会获得当前context和指定数据类型的Provider
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/actual/provider/ChangeNotifierProvider.dart';
+import 'package:flutter_sample/actual/provider/ChangeNotifierProvider2.dart';
 
 class Consumer<T> extends StatelessWidget {
   Consumer({
@@ -18,7 +18,7 @@ class Consumer<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return builder(
       context,
-      ChangeNotifierProvider.of<T>(context), //自动获取Model
+      ChangeNotifierProvider2.of<T>(context), //自动获取Model
     );
   }
 }

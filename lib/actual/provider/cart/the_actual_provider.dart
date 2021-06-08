@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/actual/provider/ChangeNotifierProvider.dart';
+import 'package:flutter_sample/actual/provider/ChangeNotifierProvider2.dart';
 import 'package:flutter_sample/actual/provider/Consumer.dart';
 import 'package:flutter_sample/actual/provider/cart/CartModel.dart';
 
@@ -22,7 +22,7 @@ class _ProviderRouteState extends State<ProviderRoute> {
 
   Center buildBody() {
     return Center(
-      child: ChangeNotifierProvider<CartModel>(
+      child: ChangeNotifierProvider2<CartModel>(
         data: CartModel(),
         child: Builder(builder: (context) {
           return Column(
@@ -40,7 +40,8 @@ class _ProviderRouteState extends State<ProviderRoute> {
                   child: Text("添加商品"),
                   onPressed: () {
                     //给购物车中添加商品，添加后总价会更新
-                    ChangeNotifierProvider.of<CartModel>(context, listen: false)
+                    ChangeNotifierProvider2.of<CartModel>(context,
+                            listen: false)
                         .add(Item(20.0, 1));
                   },
                 );

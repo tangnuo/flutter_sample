@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/actual/provider/ChangeNotifier.dart';
+import 'package:flutter_sample/actual/provider/ChangeNotifier2.dart';
 import 'package:flutter_sample/actual/provider/InheritedProvider.dart';
 
 /// https://book.flutterchina.club/chapter7/provider.html#provider
@@ -7,8 +7,9 @@ import 'package:flutter_sample/actual/provider/InheritedProvider.dart';
 /// 1、Model变化后会自动通知ChangeNotifierProvider（订阅者），
 /// 2、ChangeNotifierProvider内部会重新构建InheritedWidget，
 /// 3、而依赖该InheritedWidget的子孙Widget就会更新。
-class ChangeNotifierProvider<T extends ChangeNotifier2> extends StatefulWidget {
-  ChangeNotifierProvider({
+class ChangeNotifierProvider2<T extends ChangeNotifier2>
+    extends StatefulWidget {
+  ChangeNotifierProvider2({
     Key key,
     this.data,
     this.child,
@@ -38,19 +39,19 @@ class ChangeNotifierProvider<T extends ChangeNotifier2> extends StatefulWidget {
   }
 
   @override
-  _ChangeNotifierProviderState<T> createState() =>
-      _ChangeNotifierProviderState<T>();
+  _ChangeNotifierProvider2State<T> createState() =>
+      _ChangeNotifierProvider2State<T>();
 }
 
-class _ChangeNotifierProviderState<T extends ChangeNotifier2>
-    extends State<ChangeNotifierProvider<T>> {
+class _ChangeNotifierProvider2State<T extends ChangeNotifier2>
+    extends State<ChangeNotifierProvider2<T>> {
   void update() {
     //如果数据发生变化（model类调用了notifyListeners），重新构建InheritedProvider
     setState(() => {});
   }
 
   @override
-  void didUpdateWidget(ChangeNotifierProvider<T> oldWidget) {
+  void didUpdateWidget(ChangeNotifierProvider2<T> oldWidget) {
     //当Provider更新时，如果新旧数据不"=="，则解绑旧数据监听，同时添加新数据监听
     if (widget.data != oldWidget.data) {
       oldWidget.data.removeListener(update);

@@ -1,8 +1,6 @@
 import 'dart:collection';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_sample/actual/provider/ChangeNotifier.dart';
-
+import 'package:flutter_sample/actual/provider/ChangeNotifier2.dart';
 
 class CartModel extends ChangeNotifier2 {
   // 用于保存购物车中商品列表

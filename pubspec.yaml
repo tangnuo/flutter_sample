@@ -48,6 +48,7 @@ dependencies:
   logger: ^0.9.4
   json_annotation: ^3.1.1  #json注解
   equatable: ^1.2.0 #增强组件相等性判断
+  provider: ^4.3.2+2
 
 
 dev_dependencies:
