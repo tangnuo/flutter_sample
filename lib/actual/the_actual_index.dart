@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/actual/provider/cart/the_actual_provider.dart';
 import 'package:flutter_sample/actual/the_actual_clip.dart';
+import 'package:flutter_sample/actual/the_actual_color_theme.dart';
 import 'package:flutter_sample/actual/the_actual_flex.dart';
 import 'package:flutter_sample/actual/the_actual_form.dart';
 import 'package:flutter_sample/actual/the_actual_scaffold.dart';
 import 'package:flutter_sample/actual/the_actual_scroll.dart';
+import 'package:flutter_sample/actual/the_actual_sharedata.dart';
 import 'package:flutter_sample/actual/the_actual_switch_checkbox.dart';
 import 'package:flutter_sample/actual/the_actual_wrap_flow.dart';
 
@@ -49,4 +52,7 @@ Map<String, WidgetBuilder> routers = {
   "5、Scaffold示例": (context) => ScaffoldRoute(),
   "6、Clip 裁剪": (context) => ClipTestRoute(),
   "6、滚动监听 及控制": (context) => ScrollNotificationTestRoute(),
+  "7、共享数据": (context) => InheritedWidgetTestRoute(),
+  "8、自定义Provider框架": (context) => ProviderRoute(),
+  "9、颜色和主题": (context) => ThemeTestRoute(),
 };
