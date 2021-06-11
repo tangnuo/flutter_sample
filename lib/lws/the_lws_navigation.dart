@@ -19,18 +19,6 @@ class MyWidget extends StatefulWidget {
 class _MyState extends State<MyWidget> {
   int _selectIndex = 0;
 
-  static const List<Widget> _widget = <Widget>[
-    Text(
-      'Index 0:首页',
-    ),
-    Text(
-      'Index 1: 通讯录',
-    ),
-    Text(
-      'Index 2: 设置',
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +26,8 @@ class _MyState extends State<MyWidget> {
         title: Text('BottomNavigationBar示例'),
       ),
       body: Center(
-        child: _widget.elementAt(_selectIndex),
+        child: Text("Index==>$_selectIndex"),
+        // child: _widget.elementAt(_selectIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [

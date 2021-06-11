@@ -10,6 +10,7 @@ import 'package:flutter_sample/actual/the_actual_scaffold.dart';
 import 'package:flutter_sample/actual/the_actual_scroll.dart';
 import 'package:flutter_sample/actual/the_actual_sharedata.dart';
 import 'package:flutter_sample/actual/the_actual_switch_checkbox.dart';
+import 'package:flutter_sample/actual/the_actual_tab.dart';
 import 'package:flutter_sample/actual/the_actual_wrap_flow.dart';
 
 /// 《Flutter实战》：https://book.flutterchina.club/
@@ -57,4 +58,5 @@ Map<String, WidgetBuilder> routers = {
   "8、自定义Provider框架": (context) => ProviderRoute(),
   "9、颜色和主题": (context) => ThemeTestRoute(),
   "10、消息通知": (context) => NotificationRoute(),
+  "11、TabController": (context) => TabPage(),
 };
