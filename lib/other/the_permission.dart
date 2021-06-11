@@ -3,6 +3,10 @@ import 'package:flutter_sample/arch/util/toast_util.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+/// https://pub.flutter-io.cn/packages/permission_handler
+/// v3.2.0，旧版本，使用 PermissionGroup 和 PermissionHandler；
+/// v5.1.0 简化了请求，使用Permission，支持support包；
+/// v8.1.0 最新版本，需要支持AndroidX，兼容性不强；
 class PermissionScaffoldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -46,31 +50,26 @@ class PermissionScaffoldApp extends StatelessWidget {
   }
 }
 
-Future<bool> _requestPermissions() async {
+void _requestPermissions() async {
 //  申请权限
-  Map<PermissionGroup, PermissionStatus> permissions =
-      await PermissionHandler().requestPermissions([
-    PermissionGroup.storage,
-    PermissionGroup.camera,
-    PermissionGroup.location,
-  ]);
+  Map<Permission, PermissionStatus> permissions = await [
+    Permission.storage,
+    Permission.camera,
+    Permission.location,
+  ].request();
 
 //  申请结果
-  PermissionStatus permissionStatus =
-      await PermissionHandler().checkPermissionStatus(PermissionGroup.camera);
-  if (permissionStatus == PermissionStatus.granted) {
+  PermissionStatus status = await Permission.camera.status;
+  if (status.isGranted) {
     print('申请成功');
   } else {
     print('申请被拒绝');
-    bool isShow = await PermissionHandler()
-        .shouldShowRequestPermissionRationale(PermissionGroup.camera);
+    bool isShow = status.isRestricted;
     if (!isShow) {
       print('当前权限已被禁用申请，请在设置中手动开启后退出重新进入程序');
-      await PermissionHandler().openAppSettings();
+      openAppSettings();
     } else {
-      PermissionStatus ps = await PermissionHandler()
-          .checkPermissionStatus(PermissionGroup.camera);
-      if (ps == PermissionStatus.granted) {
+      if (status == PermissionStatus.granted) {
         print('登录成功！');
       } else {
         _requestPermissions();
@@ -79,13 +78,10 @@ Future<bool> _requestPermissions() async {
   }
 }
 
-request() async {
-  // 检查并请求权限
-  PermissionStatus status =
-      await PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
-  if (PermissionStatus.granted != status) {
-    PermissionHandler().requestPermissions(<PermissionGroup>[
-      PermissionGroup.storage,
-    ]);
-  }
-}
+// request() async {
+//   // 检查并请求权限
+//   PermissionStatus status = await Permission.storage.status;
+//   if (PermissionStatus.granted != status) {
+//     Permission.storage.request();
+//   }
+// }
