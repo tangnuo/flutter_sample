@@ -6,6 +6,7 @@ import 'package:flutter_sample/actual/the_actual_color_theme.dart';
 import 'package:flutter_sample/actual/the_actual_flex.dart';
 import 'package:flutter_sample/actual/the_actual_form.dart';
 import 'package:flutter_sample/actual/the_actual_notification.dart';
+import 'package:flutter_sample/actual/the_actual_refresh.dart';
 import 'package:flutter_sample/actual/the_actual_scaffold.dart';
 import 'package:flutter_sample/actual/the_actual_scroll.dart';
 import 'package:flutter_sample/actual/the_actual_sharedata.dart';
@@ -59,4 +60,5 @@ Map<String, WidgetBuilder> routers = {
   "9、颜色和主题": (context) => ThemeTestRoute(),
   "10、消息通知": (context) => NotificationRoute(),
   "11、TabController": (context) => TabPage(),
+  "12、下拉刷新 上拉加载": (context) => RefreshPage(),
 };
