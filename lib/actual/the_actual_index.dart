@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/actual/provider/cart/the_actual_provider.dart';
+import 'package:flutter_sample/actual/the_actual_callback.dart';
 import 'package:flutter_sample/actual/the_actual_clip.dart';
 import 'package:flutter_sample/actual/the_actual_color_theme.dart';
 import 'package:flutter_sample/actual/the_actual_flex.dart';
@@ -61,4 +62,5 @@ Map<String, WidgetBuilder> routers = {
   "10、消息通知": (context) => NotificationRoute(),
   "11、TabController": (context) => TabPage(),
   "12、下拉刷新 上拉加载": (context) => RefreshPage(),
+  "13、接口回调": (context) => CallbackPage(),
 };

@@ -122,12 +122,14 @@ Future<TokenModel> loginIn() async {
       'username': 'ers-app2',
       'password': 'kedacom123#'
     };
-    Response response = await HttpManager.instance.dio.post(HttpApi.LOGIN_IN,
-        queryParameters: params,
-        options: Options(headers: {
-          HttpHeaders.contentTypeHeader: "application/json",
-        }),
-        data: {});
+    Response response = await HttpManager.instance.dio.post(
+      HttpApi.LOGIN_IN,
+      queryParameters: params,
+      options: Options(headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+      }),
+      data: {},
+    );
 
     BaseHttpResponse responseData = BaseHttpResponse.fromJson(response.data);
     if (responseData.message != null) {
