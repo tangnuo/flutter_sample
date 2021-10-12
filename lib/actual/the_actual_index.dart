@@ -14,6 +14,7 @@ import 'package:flutter_sample/actual/the_actual_sharedata.dart';
 import 'package:flutter_sample/actual/the_actual_switch_checkbox.dart';
 import 'package:flutter_sample/actual/the_actual_tab.dart';
 import 'package:flutter_sample/actual/the_actual_wrap_flow.dart';
+import 'package:flutter_sample/actual/the_water_mark.dart';
 
 /// 《Flutter实战》：https://book.flutterchina.club/
 class ActualIndex extends StatelessWidget {
@@ -63,4 +64,5 @@ Map<String, WidgetBuilder> routers = {
   "11、TabController": (context) => TabPage(),
   "12、下拉刷新 上拉加载": (context) => RefreshPage(),
   "13、接口回调": (context) => CallbackPage(),
+  "14、水印": (context) => WaterMarkApp(),
 };
