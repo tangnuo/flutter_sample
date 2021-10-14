@@ -14,6 +14,8 @@ import 'package:flutter_sample/actual/the_actual_sharedata.dart';
 import 'package:flutter_sample/actual/the_actual_switch_checkbox.dart';
 import 'package:flutter_sample/actual/the_actual_tab.dart';
 import 'package:flutter_sample/actual/the_actual_wrap_flow.dart';
+import 'package:flutter_sample/actual/the_animation_page.dart';
+import 'package:flutter_sample/actual/the_animation_page2.dart';
 import 'package:flutter_sample/actual/the_water_mark.dart';
 
 /// 《Flutter实战》：https://book.flutterchina.club/
@@ -65,4 +67,6 @@ Map<String, WidgetBuilder> routers = {
   "12、下拉刷新 上拉加载": (context) => RefreshPage(),
   "13、接口回调": (context) => CallbackPage(),
   "14、水印": (context) => WaterMarkApp(),
+  "15、简单动画": (context) => AnimationPage1(),
+  "16、AnimatedWidget": (context) => AnimationPage2(),
 };
