@@ -51,9 +51,9 @@ class _AnimationPage2State extends State<AnimationPage2>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("简单动画"),
+        title: Text("重构动画"),
       ),
-      body: AnimatedLogo(animation: _animation),
+      // 写法一（基础用法）：
       // body: Center(
       //   child: Container(
       //     margin: EdgeInsets.symmetric(vertical: 10),
@@ -62,6 +62,14 @@ class _AnimationPage2State extends State<AnimationPage2>
       //     child: FlutterLogo(),
       //   ),
       // ),
+
+      // 写法二(使用AnimationWidget)：
+      // body: AnimatedLogo(animation: _animation),
+
+      // 写法三（使用AnimatedBuilder）：
+      body: GrowTransition(
+        animation: _animation,
+      ),
     );
   }
 
@@ -85,6 +93,31 @@ class AnimatedLogo extends AnimatedWidget {
         margin: EdgeInsets.symmetric(vertical: 10),
         width: _animation.value,
         height: _animation.value,
+        child: FlutterLogo(),
+      ),
+    );
+  }
+}
+
+/// 用AnimatedBuilder重构 (放大效果)
+class GrowTransition extends StatelessWidget {
+  GrowTransition({
+    this.animation,
+  });
+
+  final Animation<double> animation;
+
+  Widget build(BuildContext context) {
+    return Center(
+      child: AnimatedBuilder(
+        animation: animation,
+        builder: (BuildContext context, nChild) {
+          return Container(
+            height: animation.value,
+            width: animation.value,
+            child: nChild,
+          );
+        },
         child: FlutterLogo(),
       ),
     );
