@@ -10,6 +10,7 @@ import 'package:flutter_sample/actual/the_actual_notification.dart';
 import 'package:flutter_sample/actual/the_actual_refresh.dart';
 import 'package:flutter_sample/actual/the_actual_scaffold.dart';
 import 'package:flutter_sample/actual/the_actual_scroll.dart';
+import 'package:flutter_sample/actual/the_actual_scrollcontroller.dart';
 import 'package:flutter_sample/actual/the_actual_sharedata.dart';
 import 'package:flutter_sample/actual/the_actual_switch_checkbox.dart';
 import 'package:flutter_sample/actual/the_actual_tab.dart';
@@ -17,6 +18,8 @@ import 'package:flutter_sample/actual/the_actual_wrap_flow.dart';
 import 'package:flutter_sample/actual/the_animation_page.dart';
 import 'package:flutter_sample/actual/the_animation_page2.dart';
 import 'package:flutter_sample/actual/the_water_mark.dart';
+
+import 'GradientButtonRoute.dart';
 
 /// 《Flutter实战》：https://book.flutterchina.club/
 class ActualIndex extends StatelessWidget {
@@ -58,7 +61,6 @@ Map<String, WidgetBuilder> routers = {
   "4、Wrap_Flow流式布局": (context) => FlowApp(),
   "5、Scaffold示例": (context) => ScaffoldRoute(),
   "6、Clip 裁剪": (context) => ClipTestRoute(),
-  "6、滚动监听 及控制": (context) => ScrollNotificationTestRoute(),
   "7、共享数据": (context) => InheritedWidgetTestRoute(),
   "8、自定义Provider框架": (context) => ProviderRoute(),
   "9、颜色和主题": (context) => ThemeTestRoute(),
@@ -69,4 +71,7 @@ Map<String, WidgetBuilder> routers = {
   "14、水印": (context) => WaterMarkApp(),
   "15、简单动画": (context) => AnimationPage1(),
   "16、AnimatedWidget": (context) => AnimationPage2(),
+  "17、滚动监听 及控制": (context) => ScrollNotificationTestRoute(),
+  "18、滚动监听 及控制": (context) => ScrollControllerTestRoute(),
+  "19、自定义组件：渐变按钮": (context) => GradientButtonRoute(),
 };
