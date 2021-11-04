@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+/// 动画调度抽象 RenderObjectAnimationMixin
+/// https://book.flutterchina.club/chapter10/custom_checkbox.html
 mixin RenderObjectAnimationMixin on RenderObject {
   double _progress = 0;
   int _lastTimeStamp;
