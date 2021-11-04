@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/actual/CustomCheckboxTest.dart';
 import 'package:flutter_sample/actual/CustomPaintRoute.dart';
 import 'package:flutter_sample/actual/provider/cart/the_actual_provider.dart';
 import 'package:flutter_sample/actual/the_actual_callback.dart';
@@ -80,4 +81,5 @@ Map<String, WidgetBuilder> routers = {
   "20、自定义组件：五子棋": (context) => CustomPaintRoute(),
   "21、自定义组件：不规则形状": (context) => TestCustomPaint(),
   "22、自定义组件：圆形背景渐变进度条": (context) => GradientCircularProgressRoute(),
+  "23、自绘组件：CustomCheckbox": (context) => CustomCheckboxTest(),
 };
