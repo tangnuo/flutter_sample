@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/actual/CustomPaintRoute.dart';
 import 'package:flutter_sample/actual/provider/cart/the_actual_provider.dart';
 import 'package:flutter_sample/actual/the_actual_callback.dart';
 import 'package:flutter_sample/actual/the_actual_clip.dart';
@@ -17,9 +18,11 @@ import 'package:flutter_sample/actual/the_actual_tab.dart';
 import 'package:flutter_sample/actual/the_actual_wrap_flow.dart';
 import 'package:flutter_sample/actual/the_animation_page.dart';
 import 'package:flutter_sample/actual/the_animation_page2.dart';
+import 'package:flutter_sample/actual/the_custompaint.dart';
 import 'package:flutter_sample/actual/the_water_mark.dart';
 
 import 'GradientButtonRoute.dart';
+import 'GradientCircularProgressRoute.dart';
 
 /// 《Flutter实战》：https://book.flutterchina.club/
 class ActualIndex extends StatelessWidget {
@@ -74,4 +77,7 @@ Map<String, WidgetBuilder> routers = {
   "17、滚动监听 及控制": (context) => ScrollNotificationTestRoute(),
   "18、滚动监听 及控制": (context) => ScrollControllerTestRoute(),
   "19、自定义组件：渐变按钮": (context) => GradientButtonRoute(),
+  "20、自定义组件：五子棋": (context) => CustomPaintRoute(),
+  "21、自定义组件：不规则形状": (context) => TestCustomPaint(),
+  "22、自定义组件：圆形背景渐变进度条": (context) => GradientCircularProgressRoute(),
 };
