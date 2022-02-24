@@ -1,5 +1,4 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -109,38 +108,44 @@ void onLogin() {
   //     builder: (ctx) => LoadingDialog("提交中...", () => {}));
 
   loginIn()
-      ?.then((tokenModel) => {
-            print("解析的token:${tokenModel!.jwt_token}"),
+      .then((tokenModel) => {
+            print("解析的token:${tokenModel.jwt_token}"),
             PreferenceUtil.setJWTToken(tokenModel.jwt_token!),
           })
-      .catchError((e) => MyLogger.instance.info("登录异常：" + e.toString()));
+      .catchError((e) => MyLogger.instance.info("登录异常：${e.toString()}"));
 }
 
-Future<TokenModel?>? loginIn() async {
+Future<TokenModel> loginIn() async {
   try {
     final params = <String, dynamic>{
       'username': 'ers-app2',
       'password': 'kedacom123#'
     };
-    Response response = await HttpManager.instance.dio.post(
-      HttpApi.LOGIN_IN,
-      queryParameters: params,
-      options: Options(headers: {
-        HttpHeaders.contentTypeHeader: "application/json",
-      }),
-      data: {},
-    );
+    // Response response = await HttpManager.instance.dio.post(
+    //   HttpApi.LOGIN_IN,
+    //   queryParameters: params,
+    //   options: Options(headers: {
+    //     HttpHeaders.contentTypeHeader: "application/json",
+    //   }),
+    //   data: {},
+    // );
+
+    Response response = await HttpManager.instance.dio.post(HttpApi.LOGIN_IN,
+        queryParameters: params,
+        options: Options(contentType: Headers.jsonContentType));
 
     BaseHttpResponse responseData = BaseHttpResponse.fromJson(response.data);
-    if (responseData.message != null) {
-      ToastUtil.showToast(responseData.message!);
-      return null;
-    } else {
+    if (responseData.result != null) {
       TokenModel tokenModel =
           TokenModel.fromJson(responseData.result as Map<String, dynamic>);
-      return tokenModel;
+      if (tokenModel.jwt_token != null) {
+        return tokenModel;
+      }
     }
+    return Future.error(
+        Exception(responseData.message ?? "unknown service error"));
   } on DioError catch (e) {
     ToastUtil.showToast(NetErrorHelper.getNetErrorMessage(e));
+    return Future.error(Exception(NetErrorHelper.getNetErrorMessage(e)));
   }
 }

@@ -34,6 +34,7 @@ class MyLogger {
     _today =
         "${dateTime.year.toString()}_${dateTime.month.toString().padLeft(2, '0')}_${dateTime.day.toString().padLeft(2, '0')}";
     String saveLogPath = appDocPath + "/logs/" + _today! + ".log";
+    // /storage/emulated/0/Android/data/com.example.flutter_sample/files/logs/2022_02_24.log
     print("MyLogger savelog path：" + saveLogPath);
     if (!await File(saveLogPath).exists()) {
       await File(saveLogPath).create(recursive: true);
@@ -43,8 +44,8 @@ class MyLogger {
     list.add(ConsoleOutput());
     var outPut = MultiOutput(list);
     _logger = Logger(
-      filter:
-          ProductionFilter(), // Use the default LogFilter (-> only log in debug mode)
+      filter: ProductionFilter(),
+      // Use the default LogFilter (-> only log in debug mode)
       printer: MyPrinter(printTime: true),
       // printer: PrettyPrinter(
       //     methodCount: 2,
@@ -72,14 +73,13 @@ class MyLogger {
       init();
     }
 
-    // _logger.i("emergency " + msg);
     int limit = 500;
     for (var index = 0; index < msg.length / limit + 1; index++) {
       int first = index * limit;
       if (first < msg.length) {
         int last = first + limit;
         last = last <= msg.length ? last : msg.length;
-        _logger.i("emergency " + msg.substring(first, last));
+        _logger.i("caowj: " + msg.substring(first, last));
       }
     }
   }
