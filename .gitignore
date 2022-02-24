@@ -76,3 +76,4 @@
 **/*.g.dart
 **/pubspec.lock
 **/.flutter-plugins-dependencies
+/lib/generated_plugin_registrant.dart

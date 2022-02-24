@@ -10,9 +10,10 @@ class JSONField {
 
   //Whether to participate in toJson
   final bool serialize;
-  
+
   //Whether to participate in fromMap
   final bool deserialize;
 
-  const JSONField({this.name, this.serialize, this.deserialize});
+  const JSONField(
+      {required this.name, required this.serialize, required this.deserialize});
 }
