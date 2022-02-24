@@ -30,7 +30,7 @@ class CustomCheckbox extends LeafRenderObjectWidget {
     return RenderCustomCheckbox(
       strokeWidth,
       strokeColor,
-      fillColor ?? Theme.of(context).primaryColor,
+      fillColor,
       value,
       radius,
       onChanged,
@@ -46,7 +46,7 @@ class CustomCheckbox extends LeafRenderObjectWidget {
     renderObject
       ..strokeWidth = strokeWidth
       ..strokeColor = strokeColor
-      ..fillColor = fillColor ?? Theme.of(context).primaryColor
+      ..fillColor = fillColor
       ..radius = radius
       ..value = value
       ..onChanged = onChanged;

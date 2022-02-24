@@ -28,8 +28,8 @@ class GradientButton extends StatelessWidget {
     ThemeData theme = Theme.of(context);
 
     //确保colors数组不空
-    List<Color> _colors = colors ??
-        [theme.primaryColor, theme.primaryColorDark ?? theme.primaryColor];
+    List<Color> _colors =
+        colors ?? [theme.primaryColor, theme.primaryColorDark];
 
     return DecoratedBox(
       decoration: BoxDecoration(

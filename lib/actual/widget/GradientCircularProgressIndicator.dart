@@ -97,7 +97,7 @@ class _GradientCircularProgressPainter extends CustomPainter {
       size = Size.fromRadius(radius!);
     }
     double _offset = strokeWidth / 2.0;
-    double _value = (value ?? .0);
+    double _value = (value);
     _value = _value.clamp(.0, 1.0) * total;
     double _start = .0;
 

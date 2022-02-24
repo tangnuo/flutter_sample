@@ -20,7 +20,7 @@ class SharedPreferencesUtils {
    *
    */
 
-  static Object savePreference(
+  static void savePreference(
       BuildContext context, String key, Object value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (value is int) {

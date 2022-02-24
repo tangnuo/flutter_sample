@@ -6,7 +6,6 @@ import 'package:flutter_sample/other/bloc/login/the_login_bloc.dart';
 import 'package:flutter_sample/other/bloc/login/the_login_event.dart';
 import 'package:flutter_sample/other/bloc/login/the_login_state.dart';
 
-
 /// https://blog.csdn.net/mubowen666/article/details/107205674/
 
 class BlocLoginApp extends StatelessWidget {
@@ -49,10 +48,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
     super.dispose();
-    nameCtr?.removeListener(() {});
-    nameCtr?.dispose();
-    pwdCtr?.removeListener(() {});
-    pwdCtr?.dispose();
+    nameCtr.removeListener(() {});
+    nameCtr.dispose();
+    pwdCtr.removeListener(() {});
+    pwdCtr.dispose();
   }
 
   @override
@@ -176,7 +175,6 @@ class SuccessDialog extends StatefulWidget {
 }
 
 class _SuccessDialogState extends State<SuccessDialog> {
-
   /// 登录成功后，跳转到主页
   Future<void> waitFuture() async {
     await Future.delayed(Duration(milliseconds: 500));

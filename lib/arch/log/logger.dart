@@ -29,7 +29,7 @@ class MyLogger {
     Directory? appDocDir = Platform.isAndroid
         ? await (getExternalStorageDirectory())
         : await getLibraryDirectory();
-    String appDocPath = appDocDir!.path;
+    String appDocPath = appDocDir.path;
     DateTime dateTime = DateTime.now();
     _today =
         "${dateTime.year.toString()}_${dateTime.month.toString().padLeft(2, '0')}_${dateTime.day.toString().padLeft(2, '0')}";
