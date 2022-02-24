@@ -56,11 +56,13 @@ class LwsBasicApp extends StatelessWidget {
               ),
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () => print('onPressed'),
-              color: Colors.lightBlueAccent,
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.lightBlueAccent)),
               child: Text(
-                'RaisedButton',
+                'ElevatedButton',
                 style: TextStyle(fontSize: 10.0),
               ),
             ),

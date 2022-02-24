@@ -1,7 +1,8 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class ColorConst{
+class ColorConst {
   //颜色
   static const Color_Font_Black = Color(0xFF222222);
   static const Color_Font_Gray = Color(0xFF999999);

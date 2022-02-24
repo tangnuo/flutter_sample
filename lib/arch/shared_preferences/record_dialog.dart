@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-/***
- *
- *创建人：xuqing
- * 类说明：账号历史记录弹窗
- * 创建时间：2020-9-5
- *
- *
- */
+
+/// *
+///
+///创建人：xuqing
+/// 类说明：账号历史记录弹窗
+/// 创建时间：2020-9-5
+///
+///
 
 class RecordDialog extends Dialog {
   String jsondata;

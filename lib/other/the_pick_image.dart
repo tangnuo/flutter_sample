@@ -21,11 +21,11 @@ class _ImagePickerState extends State<ImagePickerWidget> {
           child: Column(
             children: <Widget>[
               _ImageView(_imgPath),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _takePhoto,
                 child: Text("拍照"),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _openGallery,
                 child: Text("选择照片"),
               ),

@@ -154,14 +154,18 @@ class _LoginPageState extends State<LoginPage> {
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 50),
       width: double.infinity,
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text(
           '登录',
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
-        color: Theme.of(context).accentColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100),
+            ),
+          ),
         ),
         onPressed: onPressed,
       ),

@@ -49,17 +49,19 @@ class _GradientCircularProgressRouteState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            // AnimatedBuilder(
-            //   animation: _animationController,
-            //   builder: (BuildContext context, Widget child) {
-            //     return Padding(
-            //       padding: const EdgeInsets.symmetric(vertical: 16.0),
-            //       child: Column(
-            //         children: _children(),
-            //       ),
-            //     );
-            //   },
-            // ),
+            AnimatedBuilder(
+              animation: _animationController,
+              builder: (BuildContext context, Widget? child) {
+                return Container(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Column(
+                      children: _children(),
+                    ),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),

@@ -17,7 +17,7 @@ class FirstPage extends StatelessWidget {
         title: Text("第一页"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text("跳转到第二页"),
           onPressed: () {
             Navigator.push(
@@ -42,7 +42,7 @@ class SecondPage extends StatelessWidget {
         title: Text("第二页"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text("返回到第二页"),
           onPressed: () {
             Navigator.pop(context);
@@ -77,7 +77,7 @@ class FirstPage2 extends StatelessWidget {
         title: Text("第一页"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text("跳转到第二页"),
           onPressed: () {
             Navigator.pushNamed(context, '/Second'); //2
@@ -112,7 +112,7 @@ class FirstPage3 extends StatelessWidget {
         title: Text("第一页"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text("跳转到第二页"),
           onPressed: () {
             _navigateToSecondPage(context);
@@ -148,7 +148,7 @@ class SecondPage3 extends StatelessWidget {
           children: <Widget>[
             Text('第一页的数据为：'),
             Text(customArgumnets.content),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 // 当我们点击返回第一页，在控制台中会打印出 Android进阶解密。
                 Navigator.pop(context, CustomArgumnets('Android进阶解密')); //返回时传参

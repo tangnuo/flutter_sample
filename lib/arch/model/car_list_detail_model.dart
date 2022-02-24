@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'car_list_detail_model.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable()
 class CarListDetailModel {
   String? cphm; //号牌号码
   String? cllx; //车辆类型

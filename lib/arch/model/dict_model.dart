@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'dict_model.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable()
 class DictModel with JsonConvert<DictModel> {
   String? codeItemName;
   String? codeTypeNo;
@@ -28,7 +28,7 @@ class DictModel with JsonConvert<DictModel> {
 
   @override
   bool operator ==(Object other) {
-    if (other != null && other is DictModel) {
+    if (other is DictModel) {
       return other.no == this.no;
     }
     return false;

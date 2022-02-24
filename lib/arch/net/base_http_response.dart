@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'base_http_response.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable()
 class BaseHttpResponse {
   String? code;
   Map? result;

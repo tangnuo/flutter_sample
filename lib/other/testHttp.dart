@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: _getIPAddress,
               child: new Text('获取天气预报'),
             ),

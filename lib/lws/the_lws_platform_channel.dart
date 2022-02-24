@@ -17,7 +17,7 @@ class LwsPlatformApp1 extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(40.0),
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text("调用Dialog"),
           onPressed: () {
             showDialog("Flutter调用AlertDialog");

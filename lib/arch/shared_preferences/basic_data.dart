@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/***
- * 创建人：xuqing
- * 创建时间：2020年11月5日11:54:16
- * 类说明： shared_preferences  存储基本数据类型
- */
+/// *
+/// 创建人：xuqing
+/// 创建时间：2020年11月5日11:54:16
+/// 类说明： shared_preferences  存储基本数据类型
 class BasicData extends StatefulWidget {
   BasicData({Key? key}) : super(key: key);
 
@@ -36,7 +35,7 @@ class _BasicDataState extends State<BasicData> {
       body: Center(
         child: Column(
           children: [
-            RaisedButton(
+            ElevatedButton(
               child: Text("储存 int类型数据 "),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -44,7 +43,7 @@ class _BasicDataState extends State<BasicData> {
                 await prefs.setInt('counter', counter);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("储存 String类型数据 "),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -52,7 +51,7 @@ class _BasicDataState extends State<BasicData> {
                 await prefs.setString('counter', counter);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("储存 bool类型数据 "),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -60,7 +59,7 @@ class _BasicDataState extends State<BasicData> {
                 await prefs.setBool('counter', counter);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("储存 double类型数据 "),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -68,7 +67,7 @@ class _BasicDataState extends State<BasicData> {
                 await prefs.setDouble('counter', counter);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("储存 list<String>data类型数据 "),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -76,7 +75,7 @@ class _BasicDataState extends State<BasicData> {
                 await prefs.setStringList('counter', counter);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("取值 "),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();

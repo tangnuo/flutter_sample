@@ -85,15 +85,15 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取临时目录'),
               onPressed: _getTempDirectory,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取应用文档目录'),
               onPressed: _getAppDocDirectory,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取外部存储目录'),
               onPressed: _getSDCardDirectory,
             ),
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
               autofocus: true,
               decoration: new InputDecoration(hintText: '请输入备忘录保存数据'),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('保存备忘录数据'),
               onPressed: _saveData,
             ),

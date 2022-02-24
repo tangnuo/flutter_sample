@@ -35,8 +35,8 @@ class _ProviderRouteState extends State<ProviderRoute> {
               //   return Text("总价: ${cart.totalPrice}\n数量：${cart.items.length}");
               // }),
               Builder(builder: (context) {
-                print("RaisedButton build"); //在后面优化部分会用到
-                return RaisedButton(
+                print("ElevatedButton build"); //在后面优化部分会用到
+                return ElevatedButton(
                   child: Text("添加商品"),
                   onPressed: () {
                     //给购物车中添加商品，添加后总价会更新

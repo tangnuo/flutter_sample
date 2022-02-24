@@ -35,7 +35,7 @@ class GradientCircularProgressIndicator extends StatelessWidget {
   final double totalAngle;
 
   /// 渐变色数组
-  final List<Color> colors;
+  final List<Color>? colors;
 
   /// 渐变色的终止点，对应colors属性
   final List<double>? stops;
@@ -50,7 +50,7 @@ class GradientCircularProgressIndicator extends StatelessWidget {
     }
     var _colors = colors;
     if (_colors == null) {
-      Color color = Theme.of(context).accentColor;
+      Color color = Theme.of(context).colorScheme.secondary;
       _colors = [color, color];
     }
     return Transform.rotate(

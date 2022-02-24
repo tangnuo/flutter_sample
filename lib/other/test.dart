@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter rolling demo'),
-        ),
-        body: Center(
-          child: RollingButton(),
-        ),
+      appBar: AppBar(
+        title: Text('Flutter rolling demo'),
+      ),
+      body: Center(
+        child: RollingButton(),
+      ),
     );
   }
 }
@@ -33,7 +33,7 @@ class RollingButton extends StatefulWidget {
 //
 //  @override
 //  Widget build(BuildContext context) {
-//    return RaisedButton(
+//    return ElevatedButton(
 //      child: Text('Roll'),
 //      onPressed: _onPressed,
 //    );
@@ -59,7 +59,7 @@ class _RollingState extends State<RollingButton> {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text('Roll'),
       onPressed: _onPressed,
     );
@@ -85,5 +85,3 @@ class _RollingState extends State<RollingButton> {
         });
   }
 }
-
-

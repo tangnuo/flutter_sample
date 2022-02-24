@@ -173,7 +173,7 @@ class TestExpanded extends StatelessWidget {
       children: <Widget>[
         Expanded(
           flex: 1,
-          child: RaisedButton(
+          child: ElevatedButton(
             child: Text("btn1"),
             color: Colors.red,
             onPressed: () {},
@@ -181,7 +181,7 @@ class TestExpanded extends StatelessWidget {
         ),
         Expanded(
           flex: 2,
-          child: RaisedButton(
+          child: ElevatedButton(
             child: Text("btn2"),
             color: Colors.blue,
             onPressed: () {},
@@ -211,7 +211,7 @@ class _MessageFormState extends State<MessageForm> {
             controller: editController,
           ),
         ),
-        RaisedButton(
+        ElevatedButton(
           child: Text("click"),
           color: Colors.blue,
 //          onPressed: () => debugPrint("11111111111111"),

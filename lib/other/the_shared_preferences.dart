@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            RaisedButton(
+            ElevatedButton(
               child: Text("基本数据类型存储"),
               onPressed: () {
                 Navigator.of(context).push(
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("SharedPreferences 封装使用"),
               onPressed: () {
                 Navigator.of(context).push(
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("存储map数据和bean"),
               onPressed: () {
                 Navigator.of(context).push(
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("SharedPreferencesutils 存储map数据和bean"),
               onPressed: () {
                 Navigator.of(context).push(

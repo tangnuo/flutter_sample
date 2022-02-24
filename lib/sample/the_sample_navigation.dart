@@ -9,7 +9,7 @@ class FirstScreen extends StatelessWidget {
         title: Text("First Screen"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return SecondScreen();
@@ -30,7 +30,7 @@ class SecondScreen extends StatelessWidget {
         title: Text("Second Screen"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
@@ -119,13 +119,13 @@ class DetailScreen extends StatelessWidget {
 class NavigationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: Text('Returning Data Demo'),
-        ),
-        body: Center(
-          child: SelectionButton(),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Returning Data Demo'),
+      ),
+      body: Center(
+        child: SelectionButton(),
+      ),
     );
   }
 }
@@ -134,7 +134,7 @@ class NavigationApp extends StatelessWidget {
 class SelectionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: () {
         _navigateAndDisplaySelection(context);
       },
@@ -163,7 +163,7 @@ class SelectionScreen extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context, 'Yep!');
                 },
@@ -172,7 +172,7 @@ class SelectionScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context, 'Nope!');
                 },

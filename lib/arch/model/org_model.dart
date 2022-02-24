@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'org_model.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable()
 class OrgModel with JsonConvert<OrgModel> {
   String? bz;
 

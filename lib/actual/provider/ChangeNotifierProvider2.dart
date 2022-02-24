@@ -35,7 +35,6 @@ class ChangeNotifierProvider2<T extends ChangeNotifier2>
             .getElementForInheritedWidgetOfExactType<InheritedProvider<T>>()
             ?.widget as InheritedProvider<T>;
     return provider!.data;
-    return provider.data;
   }
 
   @override

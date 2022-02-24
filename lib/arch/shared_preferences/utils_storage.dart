@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'shared_preferences.dart';
 
-/**
- * 创建人：xuqing
- * 创建时间：2020年11月8日11:19:44
- * 类说明：SharedPreferencesUtils  存储和取值调用测试类
- *
- *
- *
- */
+/// 创建人：xuqing
+/// 创建时间：2020年11月8日11:19:44
+/// 类说明：SharedPreferencesUtils  存储和取值调用测试类
+///
+///
+///
 class UtilsStorage extends StatefulWidget {
   UtilsStorage({Key? key}) : super(key: key);
 
@@ -40,7 +38,7 @@ class _UtilsStorageState extends State<UtilsStorage> {
       body: Center(
         child: Column(
           children: [
-            RaisedButton(
+            ElevatedButton(
               child: Text("存储 "),
               onPressed: () {
                 String counter = "1";
@@ -48,7 +46,7 @@ class _UtilsStorageState extends State<UtilsStorage> {
                     context, "counter", counter);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("取值 "),
               onPressed: () async {
                 String counter = await (SharedPreferencesUtils.getPreference(

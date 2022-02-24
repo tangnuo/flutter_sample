@@ -7,15 +7,14 @@ import 'record_dialog.dart';
 import 'shared_preferences.dart';
 import 'user.dart';
 
-/***
- *
- *
- * 创建人：xuqing
- * 创建时间：2020年11月6日10:49:42
- * 类说明：  存储对象
- *
- *
- */
+/// *
+///
+///
+/// 创建人：xuqing
+/// 创建时间：2020年11月6日10:49:42
+/// 类说明：  存储对象
+///
+///
 class CacheBean extends StatefulWidget {
   CacheBean({Key? key}) : super(key: key);
 
@@ -93,10 +92,14 @@ class _CacheBeanState extends State<CacheBean> {
                 child: Container(
                   width: double.infinity,
                   height: 40,
-                  child: RaisedButton(
-                    color: Colors.green,
-                    textColor: Colors.white,
-                    child: Text("登录"),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                    ),
+                    child: Text(
+                      "登录",
+                      style: TextStyle(color: Colors.white),
+                    ),
                     onPressed: () async {
                       User user = new User();
                       user.username = _username;
@@ -116,10 +119,14 @@ class _CacheBeanState extends State<CacheBean> {
                 child: Container(
                   width: double.infinity,
                   height: 40,
-                  child: RaisedButton(
-                    color: Colors.green,
-                    textColor: Colors.white,
-                    child: Text("查看登录历史账号信息"),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                    ),
+                    child: Text(
+                      "查看登录历史账号信息",
+                      style: TextStyle(color: Colors.white),
+                    ),
                     onPressed: () async {
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();

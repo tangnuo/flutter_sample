@@ -3,22 +3,20 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/***
- *
- *  创建人 :xuqing
- *  创建时间 ：2020年11月7日20:25:30
- *  类说明: SharedPreferences  缓存工具类 支持基本数据类型和 bean模型和  List 数组
- *
- *
- *
- */
+/// *
+///
+///  创建人 :xuqing
+///  创建时间 ：2020年11月7日20:25:30
+///  类说明: SharedPreferences  缓存工具类 支持基本数据类型和 bean模型和  List 数组
+///
+///
+///
 
 class SharedPreferencesUtils {
-  /***
-   *
-   * 存数据
-   *
-   */
+  /// *
+  ///
+  /// 存数据
+  ///
 
   static void savePreference(
       BuildContext context, String key, Object value) async {
@@ -38,12 +36,11 @@ class SharedPreferencesUtils {
     }
   }
 
-  /***
-   *
-   * 取数据
-   *
-   *
-   */
+  /// *
+  ///
+  /// 取数据
+  ///
+  ///
   static Future getPreference(
       Object context, String key, Object defaultValue) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -62,27 +59,23 @@ class SharedPreferencesUtils {
     }
   }
 
-  /***
-   * 删除指定数据
-   */
+  /// *
+  /// 删除指定数据
   static void remove(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove(key); //删除指定键
   }
 
-  /***
-   * 清空整个缓存
-   */
+  /// *
+  /// 清空整个缓存
   static void clear() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear(); ////清空缓存
   }
 
-  /**
-   * 3.存储账本bookBean的list
-   *
-   * List<Object> phoneList
-   */
+  /// 3.存储账本bookBean的list
+  ///
+  /// List<Object> phoneList
   static void setSelectBean(
       BuildContext context, Object bean, String key) async {
     List<Object> phoneList = [];
@@ -93,11 +86,9 @@ class SharedPreferencesUtils {
     prefs.setString(key, jsonStringA);
   }
 
-  /**
-   * 存储  List<Object> phoneList
-   *
-   * List<Object> phoneList
-   */
+  /// 存储  List<Object> phoneList
+  ///
+  /// List<Object> phoneList
   static void setSelectBeanList(
       BuildContext context, List<Object> phoneList, String key) async {
     String jsonStringA = jsonEncode(phoneList);
@@ -106,11 +97,9 @@ class SharedPreferencesUtils {
     prefs.setString(key, jsonStringA);
   }
 
-  /**
-   * 获取  List<Object> phoneList
-   *
-   * List<Object> phoneList
-   */
+  /// 获取  List<Object> phoneList
+  ///
+  /// List<Object> phoneList
   static Future getSelectBean(BuildContext context, String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String getdata = await prefs.getString("data");

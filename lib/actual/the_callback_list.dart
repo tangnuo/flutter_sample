@@ -43,9 +43,7 @@ class _TextListState extends State<TextList> {
         child: Text(widget.dataArr[index]),
       )),
       onTap: () {
-        if (widget.callback != null) {
-          widget.callback(index, widget.dataArr[index]);
-        }
+        widget.callback(index, widget.dataArr[index]);
       },
     );
   }

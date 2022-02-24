@@ -102,17 +102,12 @@ Map<String, WidgetBuilder> routers = {
 };
 
 void onLogin() {
-  // showDialog(
-  //     context: context,
-  //     barrierDismissible: true,
-  //     builder: (ctx) => LoadingDialog("提交中...", () => {}));
-
-  loginIn()
-      .then((tokenModel) => {
-            print("解析的token:${tokenModel.jwt_token}"),
-            PreferenceUtil.setJWTToken(tokenModel.jwt_token!),
-          })
-      .catchError((e) => MyLogger.instance.info("登录异常：${e.toString()}"));
+  loginIn().then((tokenModel) async {
+    print("解析的token:${tokenModel.jwt_token}");
+    PreferenceUtil.setJWTToken(tokenModel.jwt_token!);
+  }).catchError((e) {
+    MyLogger.instance.info("登录异常：${e.toString()}");
+  });
 }
 
 Future<TokenModel> loginIn() async {
@@ -121,14 +116,6 @@ Future<TokenModel> loginIn() async {
       'username': 'ers-app2',
       'password': 'kedacom123#'
     };
-    // Response response = await HttpManager.instance.dio.post(
-    //   HttpApi.LOGIN_IN,
-    //   queryParameters: params,
-    //   options: Options(headers: {
-    //     HttpHeaders.contentTypeHeader: "application/json",
-    //   }),
-    //   data: {},
-    // );
 
     Response response = await HttpManager.instance.dio.post(HttpApi.LOGIN_IN,
         queryParameters: params,

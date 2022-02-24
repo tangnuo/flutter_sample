@@ -19,7 +19,7 @@ class LwsSampleIndex extends StatelessWidget {
       body: new ListView(
         children: [
           ListTile(
-            title: new RaisedButton(
+            title: new ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   // return LwsBasicApp();
@@ -30,7 +30,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: new RaisedButton(
+            title: new ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return LwsBottomNavigationBarApp();
@@ -43,7 +43,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: new RaisedButton(
+            title: new ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return LwsPageView();
@@ -53,7 +53,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: new RaisedButton(
+            title: new ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return GestureDetectorWidget();
@@ -63,7 +63,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-              title: RaisedButton(
+              title: ElevatedButton(
             child: Text('5、加载资源文件'),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -72,7 +72,7 @@ class LwsSampleIndex extends StatelessWidget {
             },
           )),
           ListTile(
-            title: RaisedButton(
+            title: ElevatedButton(
               child: Text("6、布局widget"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -84,7 +84,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: RaisedButton(
+            title: ElevatedButton(
               child: Text('7、路由'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -96,7 +96,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: RaisedButton(
+            title: ElevatedButton(
               child: Text('8、Flutter调用Android'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -106,7 +106,7 @@ class LwsSampleIndex extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: RaisedButton(
+            title: ElevatedButton(
               child: Text('9、Android调用Flutter'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {

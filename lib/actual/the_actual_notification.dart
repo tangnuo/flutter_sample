@@ -38,7 +38,7 @@ class NotificationRouteState extends State<NotificationRoute> {
         children: <Widget>[
           Builder(
             builder: (context) {
-              return RaisedButton(
+              return ElevatedButton(
                 //按钮点击时分发通知
                 onPressed: () => MyNotification("Hi").dispatch(context),
                 child: Text("Send Notification"),

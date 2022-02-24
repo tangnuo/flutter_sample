@@ -7,8 +7,7 @@ class Consumer<T> extends StatelessWidget {
     Key? key,
     required this.builder,
     this.child,
-  })  : assert(builder != null),
-        super(key: key);
+  }) : super(key: key);
 
   final Widget? child;
 

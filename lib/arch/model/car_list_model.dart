@@ -4,7 +4,7 @@ import 'car_list_detail_model.dart';
 
 part 'car_list_model.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable()
 class CarListModel {
   List<CarListDetailModel>? content;
   bool? first;

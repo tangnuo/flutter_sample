@@ -125,7 +125,7 @@ class _CounterIncrementor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new RaisedButton(
+    return new ElevatedButton(
       onPressed: onPressed,
       child: new Text('Increment'),
     );
