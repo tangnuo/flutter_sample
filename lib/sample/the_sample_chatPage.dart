@@ -17,7 +17,7 @@ class FriendlychatApp extends StatelessWidget {
 
 //单条聊天信息控件
 class ChatMessage extends StatelessWidget {
-  ChatMessage({this.text});
+  ChatMessage({required this.text});
 
   final String text;
 
@@ -37,7 +37,8 @@ class ChatMessage extends StatelessWidget {
             //单条消息记录，昵称和消息内容垂直排列
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              new Text(_name, style: Theme.of(context).textTheme.subhead), //昵称
+              new Text(_name,
+                  style: Theme.of(context).textTheme.subtitle1), //昵称
               new Container(
                 margin: const EdgeInsets.only(top: 5.0),
                 child: new Text(text), //消息文字

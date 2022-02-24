@@ -20,13 +20,13 @@ class _GradientButtonRouteState extends State<GradientButtonRoute> {
           ),
           GradientButton(
             height: 50.0,
-            colors: [Colors.lightGreen, Colors.green[700]],
+            colors: [Colors.lightGreen, Colors.green[700]!],
             child: Text("Submit"),
             onPressed: onTap,
           ),
           GradientButton(
             height: 50.0,
-            colors: [Colors.lightBlue[300], Colors.blueAccent],
+            colors: [Colors.lightBlue[300]!, Colors.blueAccent],
             child: Text("Submit"),
             onPressed: onTap,
           ),

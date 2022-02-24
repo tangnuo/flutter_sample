@@ -34,26 +34,26 @@ class MyApp extends StatelessWidget {
     );
 
     return Scaffold(
-          appBar: AppBar(
-            title: Text('Top Lakes'),
-          ),
-          // 由于我们的内容可能会超出屏幕的长度，这里把内容都放到 ListView 里。
-          // 除了这种用法，ListView 也可以像我们在 Android 原生开发中使用 ListView 那样，
-          // 根据数据动态生成一个个 item。这个我们在下一节再来学习
-          body: ListView(
-            children: <Widget>[
-              Image.asset(
-                'images/6466.jpg',
-                width: 600.0,
-                height: 240.0,
-                // cover 类似于 Android 开发中的 centerCrop，其他一些类型，读者可以查看
-                // https://docs.flutter.io/flutter/painting/BoxFit-class.html
-                fit: BoxFit.cover,
-              ),
-              titleSection,
-              buttonSection,
-              textSection
-            ],
+        appBar: AppBar(
+          title: Text('Top Lakes'),
+        ),
+        // 由于我们的内容可能会超出屏幕的长度，这里把内容都放到 ListView 里。
+        // 除了这种用法，ListView 也可以像我们在 Android 原生开发中使用 ListView 那样，
+        // 根据数据动态生成一个个 item。这个我们在下一节再来学习
+        body: ListView(
+          children: <Widget>[
+            Image.asset(
+              'images/6466.jpg',
+              width: 600.0,
+              height: 240.0,
+              // cover 类似于 Android 开发中的 centerCrop，其他一些类型，读者可以查看
+              // https://docs.flutter.io/flutter/painting/BoxFit-class.html
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection,
+            textSection
+          ],
         ));
   }
 }
@@ -388,7 +388,7 @@ void _Map() {
 }
 
 void _List() {
-  var vegetables = new List();
+  var vegetables = [];
   // 或者简单的用List来赋值
   var fruits = ['apples', 'oranges'];
   // 添加元素

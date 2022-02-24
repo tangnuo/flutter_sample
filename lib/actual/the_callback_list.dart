@@ -10,7 +10,8 @@ class TextList extends StatefulWidget {
   final List dataArr;
   final _CallBack callback;
 
-  TextList({Key key, this.dataArr, this.callback}) : super(key: key);
+  TextList({Key? key, required this.dataArr, required this.callback})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() {

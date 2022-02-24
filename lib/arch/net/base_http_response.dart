@@ -4,17 +4,19 @@ part 'base_http_response.g.dart';
 
 @JsonSerializable(nullable: true)
 class BaseHttpResponse {
-  String code;
-  Map result;
-  String message;
-  int status;
-  int timestamp;
+  String? code;
+  Map? result;
+  String? message;
+  int? status;
+  int? timestamp;
 
   //反序列化
-  factory BaseHttpResponse.fromJson(Map<String, dynamic> json) => _$BaseHttpResponseFromJson(json);
+  factory BaseHttpResponse.fromJson(Map<String, dynamic> json) =>
+      _$BaseHttpResponseFromJson(json);
 
   //序列化
   Map<String, dynamic> toJson() => _$BaseHttpResponseToJson(this);
 
-  BaseHttpResponse({this.code, this.result, this.message, this.status, this.timestamp});
+  BaseHttpResponse(
+      {this.code, this.result, this.message, this.status, this.timestamp});
 }

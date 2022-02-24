@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+
+import 'record_dialog_by_utils.dart';
 import 'shared_preferences.dart';
 import 'user.dart';
-import 'record_dialog_by_utils.dart';
-import 'dart:convert';
 
 /***
  *
@@ -14,7 +14,7 @@ import 'dart:convert';
  *
  */
 class CacheBeanByUtils extends StatefulWidget {
-  CacheBeanByUtils({Key key}) : super(key: key);
+  CacheBeanByUtils({Key? key}) : super(key: key);
 
   @override
   _CacheBeanByUtilsState createState() {
@@ -23,12 +23,12 @@ class CacheBeanByUtils extends StatefulWidget {
 }
 
 class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
-   String _username  ,_password;
-   TextEditingController controller1 = TextEditingController();
-   TextEditingController controller2 = TextEditingController();
-   List<User>_userlsit=new List();
-   String  getdata;
-   String getusername ,getpassword;
+  String? _username, _password;
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+  List<User> _userlsit = [];
+  String? getdata;
+  String? getusername, getpassword;
 
   @override
   void initState() {
@@ -46,7 +46,6 @@ class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
     return Scaffold(
       appBar: AppBar(
         title: Text("使用工具类储存bean类"),
-
       ),
       body: Container(
         margin: EdgeInsets.fromLTRB(20, 100, 20, 0),
@@ -59,9 +58,9 @@ class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
                 hintText: "请输入账号",
                 border: InputBorder.none,
               ),
-              onChanged: (value){
+              onChanged: (value) {
                 setState(() {
-                  this._username=value;
+                  this._username = value;
                 });
               },
             ),
@@ -76,9 +75,9 @@ class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
                 hintText: "请输入密码",
                 border: InputBorder.none,
               ),
-              onChanged: (value){
+              onChanged: (value) {
                 setState(() {
-                  this._password=value;
+                  this._password = value;
                 });
               },
             ),
@@ -86,7 +85,8 @@ class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
               height: 2.0,
               color: Colors.black54,
             ),
-            new Padding(padding: EdgeInsets.only(top: 20),
+            new Padding(
+                padding: EdgeInsets.only(top: 20),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -94,18 +94,18 @@ class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
                     color: Colors.green,
                     textColor: Colors.white,
                     child: Text("登录"),
-                    onPressed: ()async{
-                      User user=new User();
-                      user.username=_username;
-                      user.password=_password;
+                    onPressed: () async {
+                      User user = new User();
+                      user.username = _username;
+                      user.password = _password;
                       _userlsit.add(user);
-                       SharedPreferencesUtils.setSelectBeanList(context, _userlsit, "data");
+                      SharedPreferencesUtils.setSelectBeanList(
+                          context, _userlsit, "data");
                     },
                   ),
-                )
-            ),
-
-            new Padding(padding: EdgeInsets.only(top: 20),
+                )),
+            new Padding(
+                padding: EdgeInsets.only(top: 20),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -113,34 +113,37 @@ class _CacheBeanByUtilsState extends State<CacheBeanByUtils> {
                     color: Colors.green,
                     textColor: Colors.white,
                     child: Text("查看登录历史账号信息"),
-                    onPressed: ()async{
-                      List datalist= await SharedPreferencesUtils.getSelectBean(context, "data");
-                      showCustomDialog(context,datalist).then((value){
+                    onPressed: () async {
+                      List datalist =
+                          await SharedPreferencesUtils.getSelectBean(
+                              context, "data");
+                      showCustomDialog(context, datalist).then((value) {
                         setState(() {
-                          getusername=datalist[value]["username"];
-                          getpassword=datalist[value]["password"];
-                          controller1.text=getusername;
-                          controller2.text=getpassword;
+                          getusername = datalist[value]["username"];
+                          getpassword = datalist[value]["password"];
+                          controller1.text = getusername!;
+                          controller2.text = getpassword!;
                         });
                         print(datalist[value]["username"]);
                         print(datalist[value]["password"]);
                       });
                     },
                   ),
-                )
-            ),
+                )),
           ],
         ),
       ),
     );
   }
 
-   Future  showCustomDialog(BuildContext context,List list )async {
-     var  result=await showDialog(
-         context: context,
-         builder: (BuildContext context) {
-           return RecordDialogByUtils(list: list,);
-         });
-     return result;
-   }
+  Future showCustomDialog(BuildContext context, List list) async {
+    var result = await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return RecordDialogByUtils(
+            list: list,
+          );
+        });
+    return result;
+  }
 }

@@ -7,21 +7,21 @@ class GradientButton extends StatelessWidget {
     this.height,
     this.onPressed,
     this.borderRadius,
-    @required this.child,
+    required this.child,
   });
 
   // 渐变色数组
-  final List<Color> colors;
+  final List<Color>? colors;
 
   // 按钮宽高
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
   final Widget child;
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
 
   //点击回调
-  final GestureTapCallback onPressed;
+  final GestureTapCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {

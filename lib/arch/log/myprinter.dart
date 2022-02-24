@@ -37,15 +37,10 @@ class MyPrinter extends LogPrinter {
   List<String> log(LogEvent event) {
     var messageStr = _stringifyMessage(event.message);
     var errorStr = event.error != null ? '  ERROR: ${event.error}' : '';
-    var timeStr = printTime ? '[${DateFormat('yyyy-MM-dd HH:mm:ss.sss').format(DateTime.now())}]' : '';
+    var timeStr = printTime
+        ? '[${DateFormat('yyyy-MM-dd HH:mm:ss.sss').format(DateTime.now())}]'
+        : '';
     return ['$timeStr $messageStr$errorStr' + "\n"];
-  }
-
-  String _labelFor(Level level) {
-    var prefix = levelPrefixes[level];
-    var color = levelColors[level];
-
-    return colors ? color(prefix) : prefix;
   }
 
   String _stringifyMessage(dynamic message) {

@@ -50,7 +50,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     var keyList = routers.keys.toList();
-    DateTime _lastPressedAt; //上次点击的时间
+    DateTime? _lastPressedAt; //上次点击的时间
 
     return Scaffold(
       appBar: AppBar(
@@ -79,7 +79,7 @@ class _MainAppState extends State<MainApp> {
         ),
         onWillPop: () async {
           if (_lastPressedAt == null ||
-              (DateTime.now().difference(_lastPressedAt) >
+              (DateTime.now().difference(_lastPressedAt!) >
                   Duration(seconds: 2))) {
             //两次点击间隔超过1秒，重新计时
             _lastPressedAt = DateTime.now();
@@ -109,14 +109,14 @@ void onLogin() {
   //     builder: (ctx) => LoadingDialog("提交中...", () => {}));
 
   loginIn()
-      .then((tokenModel) => {
-            print("解析的token:" + tokenModel.jwt_token),
-            PreferenceUtil.setJWTToken(tokenModel.jwt_token),
+      ?.then((tokenModel) => {
+            print("解析的token:${tokenModel!.jwt_token}"),
+            PreferenceUtil.setJWTToken(tokenModel.jwt_token!),
           })
       .catchError((e) => MyLogger.instance.info("登录异常：" + e.toString()));
 }
 
-Future<TokenModel> loginIn() async {
+Future<TokenModel?>? loginIn() async {
   try {
     final params = <String, dynamic>{
       'username': 'ers-app2',
@@ -133,10 +133,11 @@ Future<TokenModel> loginIn() async {
 
     BaseHttpResponse responseData = BaseHttpResponse.fromJson(response.data);
     if (responseData.message != null) {
-      ToastUtil.showToast(responseData.message);
+      ToastUtil.showToast(responseData.message!);
       return null;
     } else {
-      TokenModel tokenModel = TokenModel.fromJson(responseData.result);
+      TokenModel tokenModel =
+          TokenModel.fromJson(responseData.result as Map<String, dynamic>);
       return tokenModel;
     }
   } on DioError catch (e) {

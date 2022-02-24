@@ -35,9 +35,9 @@ class LwsPlatformApp1 extends StatelessWidget {
           await platformChannel.invokeMethod('method_dialog', arguments); //2
       print('showDialog ' + result);
     } on PlatformException catch (e) {
-      print('showDialog ' + e.code + e.message + e.details);
+      print('showDialog ${e.code} ${e.message} ${e.details}');
     } on MissingPluginException catch (e) {
-      print('showDialog ' + e.message);
+      print('showDialog ${e.message}');
     }
   }
 }

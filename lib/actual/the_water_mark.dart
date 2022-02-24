@@ -30,7 +30,7 @@ class _RootAppState extends State<RootApp> {
   DisableScreenshots _plugin = DisableScreenshots();
 
 // 监控截屏行为的stream
-  StreamSubscription<void> _screenshotsSubscription;
+  late StreamSubscription<void> _screenshotsSubscription;
   int _screenshotsCount = 0;
   bool _disableScreenshots = false;
 
@@ -122,10 +122,10 @@ class Watarmark extends StatelessWidget {
   final String text;
 
   const Watarmark(
-      {Key key,
-      @required this.rowCount,
-      @required this.columnCount,
-      @required this.text})
+      {Key? key,
+      required this.rowCount,
+      required this.columnCount,
+      required this.text})
       : super(key: key);
 
   @override

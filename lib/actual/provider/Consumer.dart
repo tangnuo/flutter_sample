@@ -4,13 +4,13 @@ import 'package:flutter_sample/actual/provider/ChangeNotifierProvider2.dart';
 
 class Consumer<T> extends StatelessWidget {
   Consumer({
-    Key key,
-    @required this.builder,
+    Key? key,
+    required this.builder,
     this.child,
   })  : assert(builder != null),
         super(key: key);
 
-  final Widget child;
+  final Widget? child;
 
   final Widget Function(BuildContext context, T value) builder;
 

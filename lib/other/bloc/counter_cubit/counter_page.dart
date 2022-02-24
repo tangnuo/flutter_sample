@@ -5,7 +5,7 @@ import 'package:flutter_sample/other/bloc/counter_cubit/counter_cubit.dart';
 
 /// https://www.cnblogs.com/xdd666/p/13802923.html
 class CounterApp extends StatelessWidget {
-  CounterCubit _cubit;
+  late CounterCubit _cubit;
 
   @override
   Widget build(BuildContext context) {

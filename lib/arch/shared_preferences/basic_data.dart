@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 /***
  * 创建人：xuqing
@@ -9,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
  * 类说明： shared_preferences  存储基本数据类型
  */
 class BasicData extends StatefulWidget {
-  BasicData({Key key}) : super(key: key);
+  BasicData({Key? key}) : super(key: key);
 
   @override
   _BasicDataState createState() {
@@ -40,72 +38,58 @@ class _BasicDataState extends State<BasicData> {
           children: [
             RaisedButton(
               child: Text("储存 int类型数据 "),
-              onPressed: ()async{
+              onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                int counter =  1;
+                int counter = 1;
                 await prefs.setInt('counter', counter);
               },
             ),
-
             RaisedButton(
               child: Text("储存 String类型数据 "),
-              onPressed: ()async{
+              onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                String  counter =  "1";
+                String counter = "1";
                 await prefs.setString('counter', counter);
               },
             ),
             RaisedButton(
               child: Text("储存 bool类型数据 "),
-              onPressed: ()async{
+              onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                bool counter =false;
+                bool counter = false;
                 await prefs.setBool('counter', counter);
               },
             ),
-
-
             RaisedButton(
               child: Text("储存 double类型数据 "),
-              onPressed: ()async{
+              onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                double counter =0.01;
+                double counter = 0.01;
                 await prefs.setDouble('counter', counter);
               },
             ),
-
-
-
             RaisedButton(
               child: Text("储存 list<String>data类型数据 "),
-              onPressed: ()async{
+              onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                List<String>counter=["1","2"];
+                List<String> counter = ["1", "2"];
                 await prefs.setStringList('counter', counter);
               },
             ),
-
-
-
             RaisedButton(
               child: Text("取值 "),
-              onPressed: ()async{
+              onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                 int  counterint =prefs.getInt("counter");
-                 String  counter =prefs.getString("counter");
-                 bool  counterbool =prefs.getBool("counter");
-                double  counterdouble =prefs.getDouble("counter");
-                List  counterlist =prefs.getStringList("counter");
-
-
-
+                int counterint = prefs.getInt("counter");
+                String counter = prefs.getString("counter");
+                bool counterbool = prefs.getBool("counter");
+                double counterdouble = prefs.getDouble("counter");
+                List counterlist = prefs.getStringList("counter");
               },
             ),
           ],
         ),
-    )
-      ,
+      ),
     );
-}
-
+  }
 }

@@ -6,7 +6,7 @@ import 'MyDialog.dart';
 
 /// https://blog.csdn.net/u013600907/article/details/104819714
 class DialogPage extends StatefulWidget {
-  DialogPage({Key key}) : super(key: key);
+  DialogPage({Key? key}) : super(key: key);
 
   @override
   _DialogPageState createState() => _DialogPageState();

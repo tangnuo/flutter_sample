@@ -9,7 +9,7 @@ import 'RenderObjectAnimationMixin.dart';
 /// https://book.flutterchina.club/chapter10/custom_checkbox.html
 class CustomCheckbox extends LeafRenderObjectWidget {
   CustomCheckbox({
-    Key key,
+    Key? key,
     this.strokeWidth = 2.0,
     this.value = false,
     this.strokeColor = Colors.white,
@@ -23,7 +23,7 @@ class CustomCheckbox extends LeafRenderObjectWidget {
   final Color fillColor; // 填充颜色
   final bool value; //选中状态
   final double radius; // 圆角
-  final ValueChanged<bool> onChanged; // 选中状态发生改变后的回调
+  final ValueChanged<bool>? onChanged; // 选中状态发生改变后的回调
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -61,7 +61,7 @@ class RenderCustomCheckbox extends RenderBox with RenderObjectAnimationMixin {
   Color strokeColor;
   Color fillColor;
   double radius;
-  ValueChanged<bool> onChanged;
+  ValueChanged<bool>? onChanged;
 
   RenderCustomCheckbox(this.strokeWidth, this.strokeColor, this.fillColor,
       this.value, this.radius, this.onChanged) {
@@ -101,7 +101,7 @@ class RenderCustomCheckbox extends RenderBox with RenderObjectAnimationMixin {
       min(progress, bgAnimationInterval) / bgAnimationInterval,
     );
 
-    final inner = RRect.fromRectXY(rectProgress, 0, 0);
+    final inner = RRect.fromRectXY(rectProgress!, 0, 0);
     // 画背景
     context.canvas.drawDRRect(outer, inner, paint);
   }
@@ -132,7 +132,7 @@ class RenderCustomCheckbox extends RenderBox with RenderObjectAnimationMixin {
       final path = Path()
         ..moveTo(rect.left + rect.width / 7, rect.top + rect.height / 2)
         ..lineTo(secondOffset.dx, secondOffset.dy)
-        ..lineTo(_lastOffset.dx, _lastOffset.dy);
+        ..lineTo(_lastOffset!.dx, _lastOffset.dy);
 
       final paint = Paint()
         ..isAntiAlias = true

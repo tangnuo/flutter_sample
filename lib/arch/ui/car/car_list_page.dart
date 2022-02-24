@@ -17,6 +17,7 @@ import 'package:flutter_sample/arch/net/http_apis.dart';
 import 'package:flutter_sample/arch/net/http_manager.dart';
 import 'package:flutter_sample/arch/ui/dialog/simple_list_dialog.dart';
 import 'package:flutter_sample/arch/util/event_fn.dart';
+import 'package:flutter_sample/arch/util/string_util.dart';
 import 'package:flutter_sample/arch/util/toast_util.dart';
 
 class CarListPage extends StatefulWidget {
@@ -27,14 +28,14 @@ class CarListPage extends StatefulWidget {
 }
 
 class _CarListPageState extends State<CarListPage> {
-  List<CarListDetailModel> list = new List<CarListDetailModel>();
-  List<DictModel> carStatusList = new List<DictModel>();
+  List<CarListDetailModel>? list = <CarListDetailModel>[];
+  List<DictModel>? carStatusList = <DictModel>[];
   ScrollController listScrollController = ScrollController();
-  StreamSubscription eventBusFn;
+  late StreamSubscription eventBusFn;
   int page = 0;
   bool isLoading = false;
   bool noData = false;
-  int totalPage = 0;
+  int? totalPage = 0;
   CarSearchFilterModel _carSearchFilterModel = CarSearchFilterModel();
 
   @override
@@ -42,7 +43,7 @@ class _CarListPageState extends State<CarListPage> {
     super.initState();
     //监听事件
     eventBusFn = eventBus.on<CarEventFn>().listen((event) {
-      print("接收的值："+event.obj);
+      print("接收的值：" + event.obj);
       Future.delayed(Duration(milliseconds: 1000), () {
         getinitData();
       });
@@ -75,7 +76,7 @@ class _CarListPageState extends State<CarListPage> {
               setState(() {
                 list = value.content;
                 totalPage = value.totalPages;
-                if (page + 1 >= totalPage) noData = true;
+                if (page + 1 >= totalPage!) noData = true;
               }),
             })
         .catchError((error) {
@@ -92,7 +93,7 @@ class _CarListPageState extends State<CarListPage> {
           setState(() {
             list = value.content;
             totalPage = value.totalPages;
-            if (page + 1 >= totalPage) noData = true;
+            if (page + 1 >= totalPage!) noData = true;
           }),
         });
   }
@@ -105,9 +106,9 @@ class _CarListPageState extends State<CarListPage> {
       getCarList(page).then((value) => {
             setState(() {
               isLoading = false;
-              list..addAll(value.content);
+              list?..addAll(value.content!);
               totalPage = value.totalPages;
-              if (page + 1 >= totalPage) noData = true;
+              if (page + 1 >= totalPage!) noData = true;
             }),
           });
       print('加载更多数据');
@@ -124,20 +125,21 @@ class _CarListPageState extends State<CarListPage> {
               }));
       BaseHttpResponse resp = BaseHttpResponse.fromJson(response.data);
       if (resp.status == 200) {
-        String source = resp.result["source"];
-        String target = resp.result["target"];
+        String source = resp.result!["source"];
+        String target = resp.result!["target"];
 
         // Constant.TARGET_URL = target;
       }
     } catch (e) {
-      ToastUtil.showToast(NetErrorHelper.getNetErrorMessage(e));
+      // ToastUtil.showToast(NetErrorHelper.getNetErrorMessage(e));
     }
   }
 
-  Future<List<DictModel>> getDictModel(int typeNo) async {
+  Future<List<DictModel>?> getDictModel(int typeNo) async {
     BaseHttpResult<List<DictModel>> baseHttpResult1 = await CarRepo()
         .getDictList(typeNo, parentNo: typeNo == 20026 ? 0 : null);
-    List<DictModel> modelList1 = baseHttpResult1.resultT;
+    List<DictModel>? modelList1 = baseHttpResult1.resultT;
+    // List<DictModel> modelList1 = CarRepo().getTestCarStatusDict();
 
     return modelList1;
   }
@@ -189,7 +191,7 @@ class _CarListPageState extends State<CarListPage> {
               height: 0,
             );
           },
-          itemCount: list.length + 1,
+          itemCount: list!.length + 1,
           // itemBuilder: (context, index) =>
           //     _buildItem(context, index),
           itemBuilder: renderRow,
@@ -234,8 +236,8 @@ class _CarListPageState extends State<CarListPage> {
   }
 
   Widget renderRow(BuildContext context, int index) {
-    if (index < list.length) {
-      CarListDetailModel carListDetailModel = list[index];
+    if (index < list!.length) {
+      CarListDetailModel carListDetailModel = list![index];
 
       return GestureDetector(
           child: Container(
@@ -259,7 +261,7 @@ class _CarListPageState extends State<CarListPage> {
                     ),
                     Expanded(
                       child: Text(
-                        carListDetailModel.cphm,
+                        carListDetailModel.cphm!,
                         style: TextStyle(
                             fontSize: 16,
                             color: Color(0xFF333333),
@@ -275,7 +277,10 @@ class _CarListPageState extends State<CarListPage> {
                         child: TextButton(
                             child: Row(
                               children: [
-                                Text(carListDetailModel.clzt,
+                                Text(
+                                    StringUtil.isEmpty(carListDetailModel.clzt)
+                                        ? '未知'
+                                        : carListDetailModel.clzt!,
                                     style: TextStyle(
                                         fontSize: 14,
                                         color: Color(0xFF333333))),
@@ -291,7 +296,7 @@ class _CarListPageState extends State<CarListPage> {
                                       context: context,
                                       builder: (context) {
                                         int initSelected = CarRepo()
-                                            .getSelectedDict(carStatusList,
+                                            .getSelectedDict(carStatusList!,
                                                 carListDetailModel.clzt);
                                         return SimpleListDialog(
                                             "请选择车辆状态", carStatusList,
@@ -442,14 +447,14 @@ class _CarListPageState extends State<CarListPage> {
         "pageNo": page,
         "pageSize": 30,
         "start": 0,
-        "gnlb": _carSearchFilterModel?.functionType?.no,
-        "cllx": _carSearchFilterModel?.carType?.no,
-        "zzgn": _carSearchFilterModel?.operationalFunction?.no,
-        "cldj": _carSearchFilterModel?.carLevel?.no,
-        "clzt": _carSearchFilterModel?.carStatus?.no,
-        "qwzt": _carSearchFilterModel?.dutyStatus?.no,
-        "jgbh": _carSearchFilterModel?.institution?.jgbh,
-        "keyword": _carSearchFilterModel?.plateNumber,
+        "gnlb": _carSearchFilterModel.functionType?.no,
+        "cllx": _carSearchFilterModel.carType?.no,
+        "zzgn": _carSearchFilterModel.operationalFunction?.no,
+        "cldj": _carSearchFilterModel.carLevel?.no,
+        "clzt": _carSearchFilterModel.carStatus?.no,
+        // "qwzt": _carSearchFilterModel?.dutyStatus?.no,
+        "jgbh": _carSearchFilterModel.institution?.jgbh,
+        "keyword": _carSearchFilterModel.plateNumber,
       };
 
       CarListModel carListModel =
@@ -457,8 +462,10 @@ class _CarListPageState extends State<CarListPage> {
       return carListModel;
     } on DioError catch (e) {
       ToastUtil.showToast(NetErrorHelper.getNetErrorMessage(e));
+      return Future.error(e);
     } catch (e1) {
       print(e1);
+      return Future.error(e1);
     }
   }
 }

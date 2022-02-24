@@ -126,7 +126,7 @@ class DismissingApp extends StatelessWidget {
 class DismissibleWidget2 extends StatelessWidget {
   final List<String> items;
 
-  DismissibleWidget2({@required this.items});
+  DismissibleWidget2({required this.items});
 
   @override
   Widget build(BuildContext context) {

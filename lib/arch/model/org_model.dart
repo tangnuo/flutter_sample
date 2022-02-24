@@ -4,58 +4,54 @@ import 'package:json_annotation/json_annotation.dart';
 part 'org_model.g.dart';
 
 @JsonSerializable(nullable: true)
-class OrgModel with JsonConvert<OrgModel>{
-  String bz;
+class OrgModel with JsonConvert<OrgModel> {
+  String? bz;
 
-  List<OrgModel> children;
+  List<OrgModel?>? children;
 
-  String dwlx;
+  String? dwlx;
 
-  String id;
+  String? jdzh;
 
-  String jdzh;
+  String? jgCzhm;
 
-  String jgCzhm;
+  String? jgDzyx;
 
-  String jgDzyx;
+  String? jgYzbm;
 
-  String jgYzbm;
+  String? jgZzgy;
 
-  String jgZzgy;
+  String? jgbh;
 
-  String jgbh;
+  String? jgdz;
 
-  String jgdz;
+  int? jgjb;
 
-  int jgjb;
+  String? jgjc;
 
-  String jgjc;
+  String? jgmc;
 
-  String jgmc;
+  String? jgnbbh;
 
-  String jgnbbh;
+  String? lsgx;
 
-  String lsgx;
+  String? lxdh;
 
-  String lxdh;
+  String? lxry;
 
-  String lxry;
+  String? xzqhbh;
 
-  String xzqhbh;
+  String? xzqhmc;
 
-  String xzqhmc;
+  String? xzqhnbbm;
 
-  String xzqhnbbm;
+  String? zdbh;
 
-  String zdbh;
+  String? zdnbbh;
 
-  String zdnbbh;
+  bool? next;
 
-  bool next;
-
-  bool isSelect;
-
-
+  bool? isSelect;
 
   factory OrgModel.fromJson(Map<String, dynamic> json) =>
       _$OrgModelFromJson(json);
@@ -67,7 +63,6 @@ class OrgModel with JsonConvert<OrgModel>{
       {this.bz,
       this.children,
       this.dwlx,
-      this.id,
       this.jdzh,
       this.jgCzhm,
       this.jgDzyx,
@@ -92,7 +87,7 @@ class OrgModel with JsonConvert<OrgModel>{
 
   @override
   bool operator ==(Object other) {
-    if(other!=null&& other is OrgModel){
+    if (other != null && other is OrgModel) {
       return other.jgbh == this.jgbh;
     }
     return false;
@@ -100,7 +95,6 @@ class OrgModel with JsonConvert<OrgModel>{
 
   @override
   String toString() {
-
     return "{jgbh:$jgbh,jgjc: $jgjc }";
   }
 }

@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
@@ -49,13 +48,13 @@ class MyLogInterceptor extends Interceptor {
   void Function(Object object) logPrint;
 
   @override
-  Future onRequest(RequestOptions options) async {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     logPrint('*** Request ***');
     _printKV('uri', options.uri);
 
     if (request) {
       _printKV('method', options.method);
-      _printKV('responseType', options.responseType?.toString());
+      _printKV('responseType', options.responseType.toString());
       _printKV('followRedirects', options.followRedirects);
       _printKV('connectTimeout', options.connectTimeout);
       _printKV('receiveTimeout', options.receiveTimeout);
@@ -74,29 +73,32 @@ class MyLogInterceptor extends Interceptor {
       }
     }
     logPrint('');
+    super.onRequest(options, handler);
   }
 
   @override
-  Future onError(DioError err) async {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     if (error) {
       logPrint('*** DioError ***:');
-      logPrint('uri: ${err.request.uri}');
+      logPrint('uri: ${err.requestOptions.uri}');
       logPrint('$err');
       if (err.response != null) {
-        _printResponse(err.response);
+        _printResponse(err.response!);
       }
       logPrint('');
     }
+    super.onError(err, handler);
   }
 
   @override
-  Future onResponse(Response response) async {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     logPrint('*** Response ***');
     _printResponse(response);
+    super.onResponse(response, handler);
   }
 
   void _printResponse(Response response) {
-    _printKV('uri', response.request?.uri);
+    _printKV('uri', response.requestOptions.uri);
     if (responseHeader) {
       _printKV('statusCode', response.statusCode);
       if (response.isRedirect == true) {
@@ -114,7 +116,7 @@ class MyLogInterceptor extends Interceptor {
     logPrint('');
   }
 
-  void _printKV(String key, Object v) {
+  void _printKV(String key, Object? v) {
     logPrint('$key: $v');
   }
 

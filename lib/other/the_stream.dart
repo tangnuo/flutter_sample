@@ -21,8 +21,8 @@ class _StreamOnePageState extends State<StreamOnePage> {
   }, onCancel: () {
     print("onCancel");
   });
-  Stream _stream;
-  StreamSink _sink;
+  late Stream _stream;
+  late StreamSink _sink;
   int _count = 0;
 
   /// 使用 StreamSink 向 Stream 发送事件，当 _counter 大于 9 时调用 close 方法关闭流。

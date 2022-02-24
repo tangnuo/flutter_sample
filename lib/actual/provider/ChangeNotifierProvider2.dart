@@ -10,9 +10,9 @@ import 'package:flutter_sample/actual/provider/InheritedProvider.dart';
 class ChangeNotifierProvider2<T extends ChangeNotifier2>
     extends StatefulWidget {
   ChangeNotifierProvider2({
-    Key key,
-    this.data,
-    this.child,
+    Key? key,
+    required this.data,
+    required this.child,
   });
 
   final Widget child;
@@ -34,7 +34,7 @@ class ChangeNotifierProvider2<T extends ChangeNotifier2>
         : context
             .getElementForInheritedWidgetOfExactType<InheritedProvider<T>>()
             ?.widget as InheritedProvider<T>;
-    return provider.data;
+    return provider!.data;
     return provider.data;
   }
 

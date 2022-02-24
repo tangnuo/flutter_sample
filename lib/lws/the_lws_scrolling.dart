@@ -28,7 +28,7 @@ class LwsListViewApp extends StatelessWidget {
 class LwsListViewApp2 extends StatelessWidget {
   final List<String> items;
 
-  LwsListViewApp2({@required this.items});
+  LwsListViewApp2({required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class LwsListViewApp2 extends StatelessWidget {
 class LwsListViewApp3 extends StatelessWidget {
   final List<String> items;
 
-  LwsListViewApp3({@required this.items});
+  LwsListViewApp3({required this.items});
 
   @override
   Widget build(BuildContext context) {

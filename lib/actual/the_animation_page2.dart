@@ -11,8 +11,8 @@ class AnimationPage2 extends StatefulWidget {
 
 class _AnimationPage2State extends State<AnimationPage2>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {
@@ -82,12 +82,12 @@ class _AnimationPage2State extends State<AnimationPage2>
 
 /// 现在继承自AnimatedWidget而不是StatefulWidget。
 class AnimatedLogo extends AnimatedWidget {
-  AnimatedLogo({Key nKey, Animation<double> animation})
+  AnimatedLogo({Key? nKey, required Animation<double> animation})
       : super(key: nKey, listenable: animation);
 
   @override
   Widget build(BuildContext context) {
-    final Animation<double> _animation = listenable;
+    final Animation<double> _animation = listenable as Animation<double>;
     return Center(
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10),
@@ -102,7 +102,7 @@ class AnimatedLogo extends AnimatedWidget {
 /// 用AnimatedBuilder重构 (放大效果)
 class GrowTransition extends StatelessWidget {
   GrowTransition({
-    this.animation,
+    required this.animation,
   });
 
   final Animation<double> animation;

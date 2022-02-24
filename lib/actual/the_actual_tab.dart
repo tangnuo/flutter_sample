@@ -11,7 +11,7 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   final List<Tab> titleTabs = <Tab>[
     Tab(
       text: 'Android',

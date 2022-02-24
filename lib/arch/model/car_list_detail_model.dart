@@ -4,11 +4,11 @@ part 'car_list_detail_model.g.dart';
 
 @JsonSerializable(nullable: true)
 class CarListDetailModel {
-  String cphm;    //号牌号码
-  String cllx; //车辆类型
-  String clzt;  //车辆状态
-  String clbh;
-
+  String? cphm; //号牌号码
+  String? cllx; //车辆类型
+  String? clzt; //车辆状态
+  String? clbh;
+  String? clmc;
 
   CarListDetailModel({this.cphm, this.cllx, this.clzt, this.clbh});
 

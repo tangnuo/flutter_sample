@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'shared_preferences.dart';
+
 /**
  * 创建人：xuqing
  * 创建时间：2020年11月8日11:19:44
@@ -9,7 +11,7 @@ import 'shared_preferences.dart';
  *
  */
 class UtilsStorage extends StatefulWidget {
-  UtilsStorage({Key key}) : super(key: key);
+  UtilsStorage({Key? key}) : super(key: key);
 
   @override
   _UtilsStorageState createState() {
@@ -40,28 +42,27 @@ class _UtilsStorageState extends State<UtilsStorage> {
           children: [
             RaisedButton(
               child: Text("存储 "),
-              onPressed: (){
-                String counter  = "1";
-                SharedPreferencesUtils.savePreference(context, "counter", counter);
+              onPressed: () {
+                String counter = "1";
+                SharedPreferencesUtils.savePreference(
+                    context, "counter", counter);
               },
             ),
-
             RaisedButton(
               child: Text("取值 "),
-              onPressed: ()async{
-                String  counter = await (SharedPreferencesUtils.getPreference(context, "counter", "1")) as String ;
-                 print("counter  -- > "+counter);
-                 SharedPreferencesUtils.getPreference(context, "counter", "1").then((value){
-                   print("value   --->"  +value);
-                 });
-
+              onPressed: () async {
+                String counter = await (SharedPreferencesUtils.getPreference(
+                    context, "counter", "1")) as String;
+                print("counter  -- > " + counter);
+                SharedPreferencesUtils.getPreference(context, "counter", "1")
+                    .then((value) {
+                  print("value   --->" + value);
+                });
               },
             ),
           ],
         ),
-      )
-      ,
+      ),
     );
   }
-
 }

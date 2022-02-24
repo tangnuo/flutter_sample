@@ -1,13 +1,15 @@
-
 import 'package:flutter/material.dart';
+
 class SimpleListDialog<T> extends StatefulWidget {
   final String title;
-  final List<T> list;
-  final int initSelected;
-  SimpleListDialog(this.title, this.list, {this.initSelected});
+  final List<T>? list;
+  final int? initSelected;
+  final bool needCommit;
+  SimpleListDialog(this.title, this.list,
+      {this.initSelected, this.needCommit = true});
 
   @override
-  State<StatefulWidget> createState()=>SimpleListState();
+  State<StatefulWidget> createState() => SimpleListState();
 }
 
 class SimpleListState extends State<SimpleListDialog> {
@@ -15,7 +17,7 @@ class SimpleListState extends State<SimpleListDialog> {
 
   @override
   void initState() {
-    _selectId=widget.initSelected??-1;
+    _selectId = widget.initSelected ?? -1;
     super.initState();
   }
 
@@ -24,8 +26,7 @@ class SimpleListState extends State<SimpleListDialog> {
     Widget contentWidget;
 
     contentWidget = Flexible(
-      child: _buildContent(context)
-      ,
+      child: _buildContent(context),
     );
 
     Widget dialogChild = IntrinsicWidth(
@@ -48,29 +49,29 @@ class SimpleListState extends State<SimpleListDialog> {
   }
 
   _buildItem(BuildContext context, int index) {
-    return   InkWell(
-
-      onTap: (){
+    return InkWell(
+      onTap: () {
         setState(() {
-          _selectId=index;
+          _selectId = index;
         });
       },
-
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 27,vertical: 15),
+        padding: EdgeInsets.symmetric(horizontal: 27, vertical: 15),
         child: Row(children: [
           Expanded(
               child: Text(
-                "${widget.list[index]}",
-                style: TextStyle(fontSize: 14, color: Color(0xFF333333)),
-              )),
+            "${widget.list![index]}",
+            style: TextStyle(fontSize: 14, color: Color(0xFF333333)),
+          )),
           Image.asset(
-            _selectId ==index?'images/ic_checked_blue.png':'images/ic_unchecked.png' ,
+            _selectId == index
+                ? 'images/ic_checked_blue.png'
+                : 'images/ic_unchecked.png',
             width: 16,
             height: 16,
           ),
         ]),
-      ) ,
+      ),
     );
   }
 
@@ -78,7 +79,7 @@ class SimpleListState extends State<SimpleListDialog> {
     return ListView.separated(
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return _buildItem(context,index);
+          return _buildItem(context, index);
         },
         separatorBuilder: (context, index) {
           return Container(
@@ -87,7 +88,7 @@ class SimpleListState extends State<SimpleListDialog> {
             height: 1,
           );
         },
-        itemCount: widget.list.length);
+        itemCount: widget.list!.length);
   }
 
   _buildTitle(context) {
@@ -119,11 +120,11 @@ class SimpleListState extends State<SimpleListDialog> {
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(12)))),
+                                BorderRadius.all(Radius.circular(12)))),
                         padding: MaterialStateProperty.all(EdgeInsets.only(
                             right: 0, left: 0, top: 0, bottom: 0)),
                         backgroundColor:
-                        MaterialStateProperty.all(Colors.blue)),
+                            MaterialStateProperty.all(Colors.blue)),
                     child: Text(
                       '确定',
                       style: TextStyle(color: Colors.white),

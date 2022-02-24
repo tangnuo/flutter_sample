@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'func.dart';
+
 import 'const.dart';
+import 'func.dart';
 
 class ShowAlertDialog extends StatefulWidget {
   // 内容区域布局
   TextAlign contentAlign;
   // 标题
-  String title;
+  String? title;
   //内容
-  String content;
+  String? content;
   // 点击返回index 0 1
   //内容2
-  String content_tip;
-  Function onTap;
+  String? content_tip;
+  Function? onTap;
   //按钮
   List<String> items;
 
   ShowAlertDialog({
     this.contentAlign = TextAlign.left,
     this.onTap,
-    @required this.items,
+    required this.items,
     this.content,
     this.content_tip,
     this.title,
@@ -45,38 +46,40 @@ class _ShowAlertDialogState extends State<ShowAlertDialog> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 SizedBox(height: 20),
-                (widget.title == null || widget.title.length == 0) ? Container() : Container(
-                  child: Text(
-                  widget.title,
-                  style: TextStyle(
-                      color: ColorConst.Color_Font_Black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: (17)),
-                ),
-                ),
+                (widget.title == null || widget.title!.length == 0)
+                    ? Container()
+                    : Container(
+                        child: Text(
+                          widget.title!,
+                          style: TextStyle(
+                              color: ColorConst.Color_Font_Black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: (17)),
+                        ),
+                      ),
                 SizedBox(height: 10),
                 Container(
                   margin: EdgeInsets.only(left: 15, right: 15),
                   child: Text(
-                    widget.content,
+                    widget.content!,
                     style: TextStyle(
                       color: ColorConst.Color_Font_Black,
                       fontSize: (14),
                     ),
                   ),
                 ),
-                widget.content_tip.isNotEmpty?
-                Container(
-                  margin: EdgeInsets.only(left: 15, right: 15),
-                  child: Text(
-                    widget.content_tip,
-                    style: TextStyle(
-                      color: Color(0xff0F77FE),
-                      fontSize: (14),
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
-                ):Container(),
+                widget.content_tip!.isNotEmpty
+                    ? Container(
+                        margin: EdgeInsets.only(left: 15, right: 15),
+                        child: Text(
+                          widget.content_tip!,
+                          style: TextStyle(
+                              color: Color(0xff0F77FE),
+                              fontSize: (14),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    : Container(),
                 SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
@@ -107,8 +110,8 @@ class _ShowAlertDialogState extends State<ShowAlertDialog> {
             child: GestureDetector(
               onTap: () {
                 FunctionUtil.pop(context);
-                if(widget.onTap != null){
-                  widget.onTap(index);
+                if (widget.onTap != null) {
+                  widget.onTap!(index);
                 }
               },
               child: Container(
@@ -117,7 +120,7 @@ class _ShowAlertDialogState extends State<ShowAlertDialog> {
                 child: Text(
                   res,
                   style: TextStyle(
-                      color: index == 1?Color(0xff0F77FE):Color(0xff333333),
+                      color: index == 1 ? Color(0xff0F77FE) : Color(0xff333333),
                       fontSize: (15)),
                 ),
                 decoration: BoxDecoration(

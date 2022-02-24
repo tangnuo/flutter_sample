@@ -12,8 +12,8 @@ class AnimationPage1 extends StatefulWidget {
 
 class _AnimationPage1State extends State<AnimationPage1>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {

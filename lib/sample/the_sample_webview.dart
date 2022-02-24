@@ -13,7 +13,7 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-  WebViewController _controller;
+  late WebViewController _controller;
   String _title = "gsy_flutter_demo";
 
   @override
@@ -33,19 +33,17 @@ class _WebViewPageState extends State<WebViewPage> {
           },
           onPageFinished: (url) {
             // 在页面加载完成之后，获取网页标题，并显示在导航栏上。
-            _controller.evaluateJavascript("document.title").then((result){
+            _controller.evaluateJavascript("document.title").then((result) {
               setState(() {
                 _title = result;
               });
-            }
-            );
+            });
           },
         ),
       ),
     );
   }
 }
-
 
 class WebViewExampleState extends State<WebViewPage> {
   @override

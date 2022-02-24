@@ -6,9 +6,9 @@ class NavBar extends StatelessWidget {
   final Color color; //背景颜色
 
   NavBar({
-    Key key,
-    this.color,
-    this.title,
+    Key? key,
+    required this.color,
+    required this.title,
   });
 
   @override
@@ -56,7 +56,8 @@ class _ThemeTestRouteState extends State<ThemeTestRoute> {
     ThemeData themeData = Theme.of(context);
     return Theme(
       data: ThemeData(
-          primarySwatch: _themeColor, //用于导航栏、FloatingActionButton的背景色等
+          primarySwatch:
+              _themeColor as MaterialColor, //用于导航栏、FloatingActionButton的背景色等
           iconTheme: IconThemeData(color: _themeColor) //用于Icon颜色
           ),
       child: Scaffold(

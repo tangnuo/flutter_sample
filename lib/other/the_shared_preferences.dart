@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../arch/shared_preferences/basic_data.dart';
-import '../arch/shared_preferences/utils_storage.dart';
 import '../arch/shared_preferences/cache_bean.dart';
 import '../arch/shared_preferences/cache_bean_by_utils.dart';
-
+import '../arch/shared_preferences/utils_storage.dart';
 
 /// https://gitee.com/qiuyu123/fluttercachedemo
 class SpApp extends StatelessWidget {
@@ -13,7 +13,6 @@ class SpApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -22,7 +21,7 @@ class SpApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() {
@@ -53,57 +52,47 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             RaisedButton(
               child: Text("基本数据类型存储"),
-              onPressed: (){
-
+              onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context){
-                        return BasicData();
-                      }),
+                  MaterialPageRoute(builder: (context) {
+                    return BasicData();
+                  }),
                 );
               },
-
             ),
-
             RaisedButton(
               child: Text("SharedPreferences 封装使用"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context){
-                        return UtilsStorage();
-                      }),
+                  MaterialPageRoute(builder: (context) {
+                    return UtilsStorage();
+                  }),
                 );
               },
-
             ),
             RaisedButton(
               child: Text("存储map数据和bean"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context){
-                        return CacheBean();
-                      }),
+                  MaterialPageRoute(builder: (context) {
+                    return CacheBean();
+                  }),
                 );
               },
             ),
-
             RaisedButton(
               child: Text("SharedPreferencesutils 存储map数据和bean"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context){
-                        return CacheBeanByUtils();
-                      }),
+                  MaterialPageRoute(builder: (context) {
+                    return CacheBeanByUtils();
+                  }),
                 );
               },
             ),
           ],
         ),
       ),
-
     );
   }
 }

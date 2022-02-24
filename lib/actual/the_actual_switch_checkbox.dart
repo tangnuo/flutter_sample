@@ -40,7 +40,7 @@ class _BasicWidgetState extends State<BasicWidget> {
               activeColor: Colors.red, //选中时的颜色
               onChanged: (value) {
                 setState(() {
-                  _checkboxSelected = value;
+                  _checkboxSelected = value!;
                 });
               },
             ),
@@ -112,7 +112,7 @@ class _BasicWidgetState extends State<BasicWidget> {
             DecoratedBox(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                        colors: [Colors.red, Colors.orange[700]]), //背景渐变
+                        colors: [Colors.red, Colors.orange[700]!]), //背景渐变
                     borderRadius: BorderRadius.circular(3.0), //3像素圆角
                     boxShadow: [
                       //阴影

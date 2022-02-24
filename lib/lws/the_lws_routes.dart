@@ -137,7 +137,7 @@ class SecondPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CustomArgumnets customArgumnets =
-        ModalRoute.of(context).settings.arguments; // 取参数
+        ModalRoute.of(context)!.settings.arguments as CustomArgumnets; // 取参数
 
     return Scaffold(
       appBar: AppBar(

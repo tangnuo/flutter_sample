@@ -80,7 +80,7 @@ class LongListApp extends StatelessWidget {
   // List<String> items = new List<String>.generate(
   //     100, (index) => "Item $index");
 
-  LongListApp({Key key, @required this.items}) : super(key: key);
+  LongListApp({Key? key, required this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +113,7 @@ class MixListApp extends StatelessWidget {
   //       : new MessageItem("Sender $i", "Message body $i"),
   // );
 
-  MixListApp({Key key, @required this.items}) : super(key: key);
+  MixListApp({Key? key, required this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +140,7 @@ class MixListApp extends StatelessWidget {
               subtitle: new Text(item.body),
             );
           } else {
-            return null;
+            return Text("暂无");
           }
         },
       ),

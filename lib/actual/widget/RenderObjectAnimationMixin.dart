@@ -5,7 +5,7 @@ import 'package:flutter/scheduler.dart';
 /// https://book.flutterchina.club/chapter10/custom_checkbox.html
 mixin RenderObjectAnimationMixin on RenderObject {
   double _progress = 0;
-  int _lastTimeStamp;
+  int? _lastTimeStamp;
 
   // 动画时长，子类可以重写
   Duration get duration => const Duration(milliseconds: 200);
@@ -31,9 +31,9 @@ mixin RenderObjectAnimationMixin on RenderObject {
 
   void _scheduleAnimation() {
     if (_animationStatus != AnimationStatus.completed) {
-      SchedulerBinding.instance.addPostFrameCallback((Duration timeStamp) {
+      SchedulerBinding.instance!.addPostFrameCallback((Duration timeStamp) {
         if (_lastTimeStamp != null) {
-          double delta = (timeStamp.inMilliseconds - _lastTimeStamp) /
+          double delta = (timeStamp.inMilliseconds - _lastTimeStamp!) /
               duration.inMilliseconds;
 
           //在特定情况下，可能在一帧中连续的往frameCallback中添加了多次，导致两次回调时间间隔为0，

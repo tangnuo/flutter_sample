@@ -34,7 +34,7 @@ class _FormTestRouteState extends State<FormTestRoute> {
                         icon: Icon(Icons.person)),
                     // 校验用户名
                     validator: (v) {
-                      return v.trim().length > 0 ? null : "用户名不能为空";
+                      return v!.trim().length > 0 ? null : "用户名不能为空";
                     }),
                 TextFormField(
                     controller: _pwdController,
@@ -45,7 +45,7 @@ class _FormTestRouteState extends State<FormTestRoute> {
                     obscureText: true, //是否隐藏正在编辑的文本，如用于输入密码的场景等，文本内容会用“•”替换。
                     //校验密码
                     validator: (v) {
-                      return v.trim().length > 5 ? null : "密码不能少于6位";
+                      return v!.trim().length > 5 ? null : "密码不能少于6位";
                     }),
                 // 登录按钮
                 Padding(

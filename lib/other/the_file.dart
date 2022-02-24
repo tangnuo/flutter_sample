@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/other/FileHelper.dart';
 import 'package:path_provider/path_provider.dart';
 
-
 class FileScaffoldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class FileScaffoldApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -31,37 +30,38 @@ class _MyHomePageState extends State<MyHomePage> {
   /***
    * 获取临时目录
    */
-  _getTempDirectory() async{
-    Directory directory=await getTemporaryDirectory();
-    print("临时目录："+directory.path);
+  _getTempDirectory() async {
+    Directory directory = await getTemporaryDirectory();
+    print("临时目录：" + directory.path);
   }
 
   /***
    * 获取应用文档目录
    */
-  _getAppDocDirectory() async{
-    Directory directory=await getApplicationDocumentsDirectory();
-    print("应用文档目录："+directory.path);
+  _getAppDocDirectory() async {
+    Directory directory = await getApplicationDocumentsDirectory();
+    print("应用文档目录：" + directory.path);
   }
 
   /***
    * 获取外部存储目录
    */
-  _getSDCardDirectory() async{
-    Directory directory=await getExternalStorageDirectory();
-    print("外部存储目录："+directory.path);
+  _getSDCardDirectory() async {
+    Directory directory = await getExternalStorageDirectory();
+    print("外部存储目录：" + directory.path);
   }
 
-  final TextEditingController textEditingController=new TextEditingController();
-  String _data;
-  FileHelpers fileHelpers=new FileHelpers();
+  final TextEditingController textEditingController =
+      new TextEditingController();
+  String? _data;
+  FileHelpers fileHelpers = new FileHelpers();
 
   @override
   void initState() {
     super.initState();
-    fileHelpers.readFile().then((String data){
+    fileHelpers.readFile().then((String data) {
       setState(() {
-        _data=data;
+        _data = data;
       });
     });
   }
@@ -69,12 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
   /***
    * 存储数据
    */
-  Future<File> _saveData() async{
+  Future<File> _saveData() async {
     setState(() {
-      _data=textEditingController.text;
-
+      _data = textEditingController.text;
     });
-    return fileHelpers.writeFile(_data);
+    return fileHelpers.writeFile(_data!);
   }
 
   @override
@@ -107,13 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('保存备忘录数据'),
               onPressed: _saveData,
             ),
-            Text(
-                _data ?? ''
-            ),
+            Text(_data ?? ''),
           ],
         ),
       ),
     );
   }
 }
-

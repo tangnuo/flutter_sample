@@ -8,13 +8,13 @@ import 'package:flutter/material.dart';
 class GradientCircularProgressIndicator extends StatelessWidget {
   GradientCircularProgressIndicator(
       {this.strokeWidth = 2.0,
-      @required this.radius,
-      @required this.colors,
+      required this.radius,
+      required this.colors,
       this.stops,
       this.strokeCapRound = false,
       this.backgroundColor = const Color(0xFFEEEEEE),
       this.totalAngle = 2 * pi,
-      this.value});
+      required this.value});
 
   ///粗细
   final double strokeWidth;
@@ -38,7 +38,7 @@ class GradientCircularProgressIndicator extends StatelessWidget {
   final List<Color> colors;
 
   /// 渐变色的终止点，对应colors属性
-  final List<double> stops;
+  final List<double>? stops;
 
   @override
   Widget build(BuildContext context) {
@@ -78,9 +78,9 @@ class _GradientCircularProgressPainter extends CustomPainter {
       this.backgroundColor = const Color(0xFFEEEEEE),
       this.radius,
       this.total = 2 * pi,
-      @required this.colors,
+      required this.colors,
       this.stops,
-      this.value});
+      required this.value});
 
   final double strokeWidth;
   final bool strokeCapRound;
@@ -88,13 +88,13 @@ class _GradientCircularProgressPainter extends CustomPainter {
   final Color backgroundColor;
   final List<Color> colors;
   final double total;
-  final double radius;
-  final List<double> stops;
+  final double? radius;
+  final List<double>? stops;
 
   @override
   void paint(Canvas canvas, Size size) {
     if (radius != null) {
-      size = Size.fromRadius(radius);
+      size = Size.fromRadius(radius!);
     }
     double _offset = strokeWidth / 2.0;
     double _value = (value ?? .0);

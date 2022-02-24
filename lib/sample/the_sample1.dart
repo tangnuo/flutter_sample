@@ -11,7 +11,7 @@ class MyScaffold extends StatelessWidget {
         new _MyAppBar(
           title: new Text(
             "Example Title",
-            style: Theme.of(context).primaryTextTheme.title,
+            style: Theme.of(context).primaryTextTheme.bodyText1,
           ),
         ),
         new Expanded(
@@ -23,8 +23,8 @@ class MyScaffold extends StatelessWidget {
   }
 }
 
- class _MyAppBar extends StatelessWidget {
-   _MyAppBar({this.title});
+class _MyAppBar extends StatelessWidget {
+  _MyAppBar({required this.title});
 
   final Widget title;
 
@@ -119,7 +119,7 @@ class _CounterDisplay extends StatelessWidget {
 
 /// 更改 计数器
 class _CounterIncrementor extends StatelessWidget {
-  _CounterIncrementor({this.onPressed});
+  _CounterIncrementor({required this.onPressed});
 
   final VoidCallback onPressed;
 

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 /// https://book.flutterchina.club/chapter10/custom_paint.html
 /// 在Flutter中，提供了一个CustomPaint 组件，它可以结合画笔CustomPainter来实现自定义图形绘制。
 class CustomPaintRoute extends StatelessWidget {
-  const CustomPaintRoute({Key key}) : super(key: key);
+  const CustomPaintRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

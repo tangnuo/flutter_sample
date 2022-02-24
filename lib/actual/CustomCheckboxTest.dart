@@ -6,7 +6,7 @@ import 'package:flutter_sample/actual/widget/CustomCheckbox.dart';
 /// 本节我们通过自定义一个可以自由指定大小的 CustomCheckbox 组件来演示如何通过定义 RenderObject 的方式来自定义组件（而不是通过组合）。.
 /// https://book.flutterchina.club/chapter10/custom_checkbox.html
 class CustomCheckboxTest extends StatefulWidget {
-  const CustomCheckboxTest({Key key}) : super(key: key);
+  const CustomCheckboxTest({Key? key}) : super(key: key);
 
   @override
   State<CustomCheckboxTest> createState() => _CustomCheckboxTestState();

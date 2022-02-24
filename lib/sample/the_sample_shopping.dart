@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 /// 我们假设一个购物应用程序，
 /// 该应用程序显示出售的各种产品，并维护一个购物车。
 
 class Product {
-  const Product({this.name});
+  const Product({required this.name});
 
   final String name;
 }
@@ -17,7 +16,10 @@ class ShoppingListItem extends StatelessWidget {
   final bool inCart;
   final CartChangedCallback onCartChanged;
 
-  ShoppingListItem({Product product, this.inCart, this.onCartChanged})
+  ShoppingListItem(
+      {required Product product,
+      required this.inCart,
+      required this.onCartChanged})
       : product = product,
         super(key: new ObjectKey(product));
 
@@ -25,7 +27,7 @@ class ShoppingListItem extends StatelessWidget {
     return inCart ? Colors.black54 : Theme.of(context).primaryColor;
   }
 
-  TextStyle _getTextStyle(BuildContext context) {
+  TextStyle? _getTextStyle(BuildContext context) {
     if (!inCart) return null;
 
     return new TextStyle(
@@ -50,7 +52,7 @@ class ShoppingListItem extends StatelessWidget {
 }
 
 class ShoppingList extends StatefulWidget {
-  ShoppingList({Key key, this.products}) : super(key: key);
+  ShoppingList({Key? key, required this.products}) : super(key: key);
 
   final List<Product> products;
 

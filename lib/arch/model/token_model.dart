@@ -4,10 +4,10 @@ part 'token_model.g.dart';
 
 @JsonSerializable(nullable: true)
 class TokenModel {
-  String access_token;
-  String refresh_token;
-  String jwt_token;
-  int expires_in;
+  String? access_token;
+  String? refresh_token;
+  String? jwt_token;
+  int? expires_in;
 
   //反序列化
   factory TokenModel.fromJson(Map<String, dynamic> json) =>

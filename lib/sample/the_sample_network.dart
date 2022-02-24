@@ -12,10 +12,10 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 /// 1、从互联网上获取数据
 class Album {
-  final int userId;
-  final int id;
-  final String title;
-  final String body;
+  final int? userId;
+  final int? id;
+  final String? title;
+  final String? body;
 
   Album({this.userId, this.id, this.title, this.body});
 
@@ -31,8 +31,8 @@ class Album {
 
 ///将http.Response 转换成一个Album对象
 Future<Album> fetchAlbum() async {
-  final response =
-      await http.get('https://jsonplaceholder.typicode.com/albums/1');
+  final response = await http
+      .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -46,14 +46,14 @@ Future<Album> fetchAlbum() async {
 }
 
 class HttpApp extends StatefulWidget {
-  HttpApp({Key key}) : super(key: key);
+  HttpApp({Key? key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<HttpApp> {
-  Future<Album> futureAlbum;
+  late Future<Album> futureAlbum;
 
   @override
   void initState() {
@@ -73,7 +73,7 @@ class _MyAppState extends State<HttpApp> {
           future: futureAlbum,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Text(snapshot.data.title);
+              return Text(snapshot.data!.title!);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
@@ -91,7 +91,7 @@ class _MyAppState extends State<HttpApp> {
 
 Future<Album> fetchAlbum2() async {
   final response = await http.get(
-    'https://jsonplaceholder.typicode.com/albums/1',
+    Uri.parse('https://jsonplaceholder.typicode.com/albums/1'),
     headers: {HttpHeaders.authorizationHeader: "Basic your_api_token_here"},
   );
   final responseJson = jsonDecode(response.body);
@@ -115,7 +115,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
   final WebSocketChannel channel;
 
-  MyHomePage({Key key, @required this.title, @required this.channel})
+  MyHomePage({Key? key, required this.title, required this.channel})
       : super(key: key);
 
   @override
@@ -188,7 +188,7 @@ class DioApp extends StatelessWidget {
 class _MyHomePage extends StatefulWidget {
   final String title;
 
-  const _MyHomePage({Key key, this.title}) : super(key: key);
+  const _MyHomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   // State<_MyHomePage> createState() => _MyHomePageState2();
@@ -212,7 +212,7 @@ class _MyHomePageState2 extends State<_MyHomePage> {
         }),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            dio.Response response = snapshot.data;
+            dio.Response response = snapshot.data as dio.Response;
             return Text('${response.data.toString()}');
           } else {
             return LoadingWidget();
@@ -225,7 +225,7 @@ class _MyHomePageState2 extends State<_MyHomePage> {
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

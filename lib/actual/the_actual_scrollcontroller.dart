@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// 滚动监听及控制
 /// https://book.flutterchina.club/chapter6/scroll_controller.html#_6-4-1-scrollcontroller
 class ScrollControllerTestRoute extends StatefulWidget {
-  const ScrollControllerTestRoute({Key key}) : super(key: key);
+  const ScrollControllerTestRoute({Key? key}) : super(key: key);
 
   @override
   _ScrollControllerTestRouteState createState() =>

@@ -8,7 +8,7 @@ part of 'counter_cubit.dart';
 // }
 
 class CounterState {
-  int count;
+  late int count;
 
   ///初始化方法
   CounterState init() {
